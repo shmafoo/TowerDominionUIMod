@@ -50,9 +50,9 @@ Tower Dominion UI Mod is a proof of concept modification for Tower Dominion. It 
 ---
 
 ## License
-This mod is licensed under MIT License. See LICENSE.txt for full text.
+This mod is licensed under MIT License. See LICENSE for full text.
 
 ---
 
 ## Source Code
-The source code will be available on Github at a later point under the same MIT License.
+The source code is available on Github at https://github.com/shmafoo/TowerDominionUIMod under MIT License
