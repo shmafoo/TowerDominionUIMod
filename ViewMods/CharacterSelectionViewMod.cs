@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Reflection;
 using Il2CppNvizzio.Game.UI.Views;
 using MelonLoader;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Il2Cpp;
+using Il2CppNvizzio.Game.UI;
 using Il2CppTMPro;
 using TowerDominionUIMod.Core;
 
@@ -105,14 +107,13 @@ namespace TowerDominionUIMod.ViewMods
             {
                 var toggle = body.GetChild(i).GetComponent<StyledToggle>();
                 toggle.isOn = true;
-                // toggle.OnSelect(null);
             }
         }
         
         /// <summary>
         /// Shows the SelectAll button when entering ExpertModeView.
         /// </summary>
-        public void ExpertModeViewEntered()
+        public void ExpertModeMenuEntered()
         {   
             if (!CharacterSelection)
             {
@@ -126,7 +127,7 @@ namespace TowerDominionUIMod.ViewMods
         /// <summary>
         /// Hides the SelectAll button when exiting ExpertModeView.
         /// </summary>
-        public void ExpertModeViewClosed()
+        public void ExpertModeMenuClosed()
         {
             if (!CharacterSelection)
             {

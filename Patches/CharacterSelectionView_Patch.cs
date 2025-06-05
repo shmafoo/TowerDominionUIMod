@@ -36,7 +36,7 @@ namespace TowerDominionUIMod.Patches
                 return;
             }
             
-            (modifier as CharacterSelectionViewMod).ExpertModeViewEntered();
+            (modifier as CharacterSelectionViewMod).ExpertModeMenuEntered();
         }
         
         /// <summary>
@@ -53,7 +53,7 @@ namespace TowerDominionUIMod.Patches
                 return;
             }
             
-            (modifier as CharacterSelectionViewMod).ExpertModeViewClosed();
+            (modifier as CharacterSelectionViewMod).ExpertModeMenuClosed();
         }
         
         /// <summary>
@@ -70,7 +70,7 @@ namespace TowerDominionUIMod.Patches
                 return;
             }
             
-            (modifier as CharacterSelectionViewMod).ExpertModeViewClosed();
+            (modifier as CharacterSelectionViewMod).ExpertModeMenuClosed();
         }
     }
 }
