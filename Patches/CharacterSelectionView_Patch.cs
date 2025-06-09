@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Il2CppNvizzio.Game.Services;
 using Il2CppNvizzio.Game.UI.Views;
 using MelonLoader;
 using TowerDominionUIMod.ViewMods;
@@ -63,11 +64,18 @@ namespace TowerDominionUIMod.Patches
         /// <param name="__instance">The instance of CharacterSelectionView being patched</param>
         [HarmonyPostfix, HarmonyPatch(nameof(CharacterSelectionView.OnClickStartButton))]
         private static void OnClickStartButton_Postfix(CharacterSelectionView __instance)
-        {   
+        {
             if (!ViewModRegistry.TryGetModifier("CharacterSelectionView", out var modifier))
             {
                 MelonLogger.Error("Could not find CharacterSelectionView modifier");
                 return;
+            }
+            
+            // When the player clicks the start button too quickly, the calculated help level is wrong
+            if ((modifier as CharacterSelectionViewMod).WasSelectAllUsed)
+            {
+                Services.SkillService.expertScore = 19;
+                Services.SkillService.CurrentHelpLevel = 3;
             }
             
             (modifier as CharacterSelectionViewMod).ExpertModeMenuClosed();

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Reflection;
 using Il2CppNvizzio.Game.UI.Views;
 using MelonLoader;
 using UnityEngine;
-using Object = UnityEngine.Object;
 using Il2Cpp;
-using Il2CppNvizzio.Game.UI;
+using Il2CppNvizzio.Game.Services;
 using Il2CppTMPro;
 using TowerDominionUIMod.Core;
+using Object = UnityEngine.Object;
 
 /// <summary>
 /// Modifies the CharacterSelectionView by adding a SelectAll button functionality
@@ -29,6 +28,7 @@ namespace TowerDominionUIMod.ViewMods
         private CharacterSelectionView CharacterSelection = null;
         private GameObject SelectAllButton = null;
         private Action SelectAllButtonClicked = null;
+        public bool WasSelectAllUsed = false;
 
         /// <summary>
         /// Initializes the SelectAll button and sets up its UI components and event handlers.
@@ -45,28 +45,16 @@ namespace TowerDominionUIMod.ViewMods
                 return;
             }
 
+            var startButton = CharacterSelection.startButton.gameObject;
+            
             var buttonAsset = Resources.Load<GameObject>("prefabs/ui/BaseButton");
             if (!buttonAsset)
             {
                 MelonLogger.Error("Button Prefab not found");
                 return;
             }
-
-            var footer = CharacterSelection.transform.FindChildByName("Footer");
-            if (!footer)
-            {
-                MelonLogger.Error("Could not find footer in CharacterSelectionView");
-                return;
-            }
-
-            var startButton = footer.transform.FindChildByName("StartButton");
-            if (!startButton)
-            {
-                MelonLogger.Error("Could not find startButton in CharacterSelectionView");
-                return;
-            }
             
-            SelectAllButton = Object.Instantiate(buttonAsset, footer);
+            SelectAllButton = Object.Instantiate(buttonAsset, CharacterSelection.footerGO.transform);
             SelectAllButton.active = false;
             SelectAllButton.name = "SelectAllButton";
             SelectAllButton.transform.position = new Vector3(5.5f, startButton.transform.position.y, 0.0f);
@@ -85,9 +73,9 @@ namespace TowerDominionUIMod.ViewMods
         }
 
         /// <summary>
-        /// Handles the SelectAll button click event by selecting all modifiers in the ExpertModeView.
+        /// Handles the SelectAll button click event by selecting all modifiers in the ExpertModeMenu.
         /// </summary>
-        public void OnSelectAllButtonClicked()
+        private void OnSelectAllButtonClicked()
         {
             if (!CharacterSelection)
             {
@@ -108,10 +96,12 @@ namespace TowerDominionUIMod.ViewMods
                 var toggle = body.GetChild(i).GetComponent<StyledToggle>();
                 toggle.isOn = true;
             }
+
+            WasSelectAllUsed = true;
         }
         
         /// <summary>
-        /// Shows the SelectAll button when entering ExpertModeView.
+        /// Shows the SelectAll button when entering ExpertModeMenu.
         /// </summary>
         public void ExpertModeMenuEntered()
         {   
@@ -122,10 +112,11 @@ namespace TowerDominionUIMod.ViewMods
             }
             
             SelectAllButton.active = true;
+            WasSelectAllUsed = false;
         }
         
         /// <summary>
-        /// Hides the SelectAll button when exiting ExpertModeView.
+        /// Hides the SelectAll button when exiting ExpertModeMenu.
         /// </summary>
         public void ExpertModeMenuClosed()
         {
@@ -136,6 +127,7 @@ namespace TowerDominionUIMod.ViewMods
             }
             
             SelectAllButton.active = false;
+            WasSelectAllUsed = false;
         }
     }
 }

@@ -1,7 +1,6 @@
 using Il2CppCopper.ViewManager.Code;
 using MelonLoader;
 using TowerDominionUIMod.Core;
-using TowerDominionUIMod.ViewMods;
 
 namespace TowerDominionUIMod
 {

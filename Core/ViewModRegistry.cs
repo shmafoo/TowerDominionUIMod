@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Reflection;
 using Il2CppCopper.ViewManager.Code;
-using MelonLoader;
 
 namespace TowerDominionUIMod.Core
 {
@@ -14,16 +13,13 @@ namespace TowerDominionUIMod.Core
         /// <summary>
         /// Dictionary storing view modifiers, keyed by their view names.
         /// </summary>
-        private static readonly Dictionary<string, IModifyView> Modifiers;
+        private static readonly Dictionary<string, IModifyView> Modifiers = new Dictionary<string, IModifyView>();
 
         /// <summary>
         /// Static constructor that initializes the registry by discovering and instantiating all view modifiers.
         /// </summary>
         static ViewModRegistry()
         {
-            MelonLogger.Msg($"Building ViewMod registry...");
-            Modifiers = new Dictionary<string, IModifyView>();
-            
             // Find all non-abstract types that implement IModifyView
             var modifierTypes = Assembly.GetExecutingAssembly()
                 .GetTypes()

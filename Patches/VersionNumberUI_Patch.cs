@@ -30,7 +30,7 @@ namespace TowerDominionUIMod.Patches
         private static void Start_Postfix(VersionNumberUI __instance)
         {
             var versionUi = __instance.GetComponent<TextMeshProUGUI>();
-            versionUi.text = $"This might be a mod | Game: {versionUi.text}";
+            versionUi.text = $"Tower Dominion UI Mod | Game: {versionUi.text}";
             
             // Stretch the text component or the text won't fit
             __instance.GetComponent<RectTransform>().sizeDelta = new Vector2(1000, 100);
