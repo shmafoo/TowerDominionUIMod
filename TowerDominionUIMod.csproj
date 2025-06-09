@@ -68,6 +68,9 @@
         <Reference Include="Unity.TextMeshPro">
           <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll</HintPath>
         </Reference>
+        <Reference Include="UnityEngine.AssetBundleModule">
+          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\UnityEngine.AssetBundleModule.dll</HintPath>
+        </Reference>
         <Reference Include="UnityEngine.CoreModule">
           <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
@@ -85,6 +88,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Core\AssetBundles.cs" />
         <Compile Include="Core\FoeRegistry.cs" />
         <Compile Include="Core\IModifyView.cs" />
         <Compile Include="Core\ModifiedViewBase.cs" />
@@ -92,12 +96,12 @@
         <Compile Include="Core\ViewNameAttribute.cs" />
         <Compile Include="Patches\CharacterSelectionView_Patch.cs" />
         <Compile Include="Patches\EntityManager_Patch.cs" />
-        <Compile Include="Patches\GameRoundService_Patch.cs" />
         <Compile Include="Patches\VersionNumberUI_Patch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="UIMod.cs" />
         <Compile Include="ViewMods\CharacterSelectionViewMod.cs" />
         <Compile Include="ViewMods\CodexViewMod.cs" />
+        <Compile Include="ViewMods\PersistentGameHUDViewMod.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />

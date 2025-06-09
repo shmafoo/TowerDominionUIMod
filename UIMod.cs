@@ -1,4 +1,3 @@
-using Il2CppCopper.ViewManager.Code;
 using MelonLoader;
 using TowerDominionUIMod.Core;
 
@@ -18,14 +17,7 @@ namespace TowerDominionUIMod
         {
             if (sceneName == "Boot")
             {
-                ViewManager.Instance.onViewOpened += (ViewManager.ViewChangedMethod)((int Id) =>
-                {
-                    if (!ViewModRegistry.TryGetNameFromId(Id, out var viewName))
-                        return;
-                    
-                    if (viewName != null && ViewModRegistry.TryGetModifier(viewName, out var modifier))
-                        modifier.ModifyView();
-                });
+                ViewModRegistry.SubscribeOnViewOpened();
             }
         }
     }

@@ -67,5 +67,19 @@ namespace TowerDominionUIMod.Core
         {
             return Modifiers.TryGetValue(name, out modifier);
         }
+
+        public static void SubscribeOnViewOpened()
+        {
+            ViewManager.Instance.onViewOpened += (ViewManager.ViewChangedMethod)OnViewOpened;
+        }
+
+        private static void OnViewOpened(int id)
+        {
+            if (!TryGetNameFromId(id, out var viewName))
+                return;
+                    
+            if (viewName != null && TryGetModifier(viewName, out var modifier))
+                modifier.ModifyView();
+        }
     }
 }
