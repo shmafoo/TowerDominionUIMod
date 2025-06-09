@@ -98,7 +98,6 @@
         <Compile Include="UIMod.cs" />
         <Compile Include="ViewMods\CharacterSelectionViewMod.cs" />
         <Compile Include="ViewMods\CodexViewMod.cs" />
-        <Compile Include="ViewMods\TitleScreenViewMod.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />
