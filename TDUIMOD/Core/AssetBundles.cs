@@ -22,67 +22,42 @@ namespace TowerDominionUIMod.Core
 {
     public static class AssetBundles
     {
-        public static readonly AssetBundle ModBundle;
-        public static readonly StringTable ModLocalization; 
-        // public static readonly SharedTableData ModLocalizationSharedData;
+        private static IResourceLocator Catalog;
 
-        static AssetBundles()
+        public static void Initialize()
         {
-            LoadBundle(ref ModBundle, "towerdominionuimod-assetbundle");
-            LoadAndAddModLocalization();
+            Catalog = LoadCatalog("catalog_towerdominionuimod.json");
         }
-        
-        private static IResourceLocator LoadAndAddModLocalization()
+
+        private static IResourceLocator LoadCatalog(string catalogName)
         {
-            var handle = Addressables.LoadContentCatalogAsync(
-                Path.Combine(MelonEnvironment.ModsDirectory, "catalog.json"),
-                false
-            );
-            
+            var catalogPath = Path.Combine(MelonEnvironment.ModsDirectory, catalogName);
+            var handle = Addressables.LoadContentCatalogAsync(catalogPath);
             var locator = handle.WaitForCompletion();
+
+            if (handle.Status != AsyncOperationStatus.Succeeded || locator == null)
+            {
+                MelonLogger.Error($"Failed to load content catalog at {catalogPath}");
+                MelonLogger.Error($"Exception: {handle.OperationException.Message}");
+                return null;
+            }
+
             return locator;
         }
-        
-        private static bool LoadBundle(ref AssetBundle bundle, string name)
+
+        public static GameObject LoadPrefabSync(string assetAddress)
         {
-            string bundlePath = Path.Combine(MelonEnvironment.ModsDirectory, name);
+            var handle = Addressables.LoadAssetAsync<GameObject>("Prefabs/StatisticsUI");
+            var prefab = handle.WaitForCompletion();
 
-            if (File.Exists(bundlePath))
+            if (handle.Status != AsyncOperationStatus.Succeeded || prefab == null)
             {
-                bundle = AssetBundle.LoadFromFile(bundlePath);
-
-                if (!bundle)
-                {
-                    MelonLogger.Error("Failed to load AssetBundle.");
-                    return false;
-                }
-            }
-            else
-            {
-                MelonLogger.Error($"AssetBundle not found at: {bundlePath}");
-                return false;
+                MelonLogger.Error($"Failed to load prefab with address {assetAddress}");
+                MelonLogger.Error($"Exception: {handle.OperationException.Message}");
+                return null;
             }
 
-            MelonLogger.Msg($"Loaded asset bundle {name}");
-            return true;
-        }
-        
-        public static GameObject LoadGameObject(AssetBundle bundle, string path)
-        {
-            try
-            {
-                var prefab = bundle.LoadAsset<GameObject>(path);
-            
-                if (!prefab)
-                    MelonLogger.Error($"Prefab \"{path}\" not found");
-            
-                return prefab;  
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            return prefab;
         }
     }
 }

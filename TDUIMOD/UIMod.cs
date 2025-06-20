@@ -10,6 +10,7 @@ namespace TowerDominionUIMod
     {
         public override void OnInitializeMelon()
         {
+            AssetBundles.Initialize();
         }
 
         /// <summary>

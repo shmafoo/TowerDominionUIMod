@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+	<!-- Set the absolute path to your Tower Dominion installation here -->
+    <GameAbsoluteDir>G:\SteamLibrary\steamapps\common\Tower Dominion</GameAbsoluteDir>
+	
+	<!-- Set the absolute path to your local net6 installation here -->
+	<Net6Dir>C:\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.14</Net6Dir>
+	
+	<!-- Do not edit below this -->
+	<ModsDir>$(GameAbsoluteDir)\Mods</ModsDir>
+	<UnityProjectDir>$(MSBuildProjectDirectory)\..\UnityProject</UnityProjectDir>
+	<UnityAddressablesDir>$(UnityProjectDir)\Addressables</UnityAddressablesDir>
+  </PropertyGroup>
+</Project>

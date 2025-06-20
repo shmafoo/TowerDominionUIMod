@@ -12,9 +12,8 @@
         <AssemblyName>TowerDominionUIMod</AssemblyName>
         <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
-        <RunPostBuildEvent>Always</RunPostBuildEvent>
+        <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
         <LangVersion>latestmajor</LangVersion>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
       <DebugType>pdbonly</DebugType>
@@ -35,66 +34,63 @@
       <OutputPath>bin\x64\Debug\</OutputPath>
         <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
-    <PropertyGroup>
-      <PostBuildEvent>..\..\..\copybuild.bat</PostBuildEvent>
-    </PropertyGroup>
     <ItemGroup>
         <Reference Include="0Harmony">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\net6\0Harmony.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\0Harmony.dll</HintPath>
         </Reference>
         <Reference Include="Assembly-CSharp">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppCopper.ViewManager.Code">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Il2CppCopper.ViewManager.Code.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppCopper.ViewManager.Code.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppInterop.Runtime">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
         </Reference>
         <Reference Include="Il2Cppmscorlib">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppSystem.Core">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Il2CppSystem.Core.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppSystem.Core.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppSystem.Drawing">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Il2CppSystem.Drawing.dll</HintPath>
-        </Reference>
-        <Reference Include="MelonLoader">
-            <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\net6\MelonLoader.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppSystem.Drawing.dll</HintPath>
         </Reference>
         <Reference Include="System.Drawing.Primitives">
-          <HintPath>..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.14\System.Drawing.Primitives.dll</HintPath>
+          <HintPath>$(Net6Dir)\System.Drawing.Primitives.dll</HintPath>
+        </Reference>
+        <Reference Include="MelonLoader">
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\MelonLoader.dll</HintPath>
         </Reference>
         <Reference Include="Unity.Addressables">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Unity.Addressables.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.Addressables.dll</HintPath>
         </Reference>
         <Reference Include="Unity.Localization">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Unity.Localization.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.Localization.dll</HintPath>
         </Reference>
         <Reference Include="Unity.ResourceManager">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Unity.ResourceManager.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.ResourceManager.dll</HintPath>
         </Reference>
         <Reference Include="Unity.TextMeshPro">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AssetBundleModule">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\UnityEngine.AssetBundleModule.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.AssetBundleModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.TextCoreFontEngineModule">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.TextRenderingModule">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.UI">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\UnityEngine.UI.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.UI.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.UIModule">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\Il2CppAssemblies\UnityEngine.UIModule.dll</HintPath>
+          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.UIModule.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
@@ -116,10 +112,6 @@
         <Compile Include="Core\ViewNameAttribute.cs" />
         <Compile Include="Patches\CharacterSelectionView_Patch.cs" />
         <Compile Include="Patches\EntityManager_Patch.cs" />
-        <Compile Include="Patches\LocalizationStringDatabase_Patch.cs" />
-        <Compile Include="Patches\SaveSystem_Patch.cs" />
-        <Compile Include="Patches\SimpleTooltipData_Patch.cs" />
-        <Compile Include="Patches\UniversalTooltipTrigger_Patch.cs" />
         <Compile Include="Patches\VersionNumberUI_Patch.cs" />
         <Compile Include="Patches\ViewManager_Patch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,5 +131,14 @@
     <Target Name="AfterBuild">
     </Target>
     -->
+    <Target Name="AfterBuild">
+		<!-- copy the built dll to the games mods folder -->
+		<Exec Command="copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ModsDir)&quot;" />
+		<!-- copy the built addressables to the mods folder -->
+		<Exec Command="copy &quot;$(UnityAddressablesDir)\*&quot; &quot;$(ModsDir)&quot;" />
+		<!-- Start the game to test instantly. Comment this out if you do not want this -->
+		<Exec Command="cd &quot;$(GameAbsoluteDir)&quot;" />
+		<Exec Command="&quot;$(GameAbsoluteDir)\tower-dominion.exe&quot;" />
+    </Target>
 
 </Project>

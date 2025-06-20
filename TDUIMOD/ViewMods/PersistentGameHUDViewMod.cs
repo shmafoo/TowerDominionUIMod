@@ -11,7 +11,7 @@ namespace TowerDominionUIMod.ViewMods
         {
             AlwaysModify = false;
 
-            var statisticsUiPrefab = AssetBundles.LoadGameObject(AssetBundles.ModBundle, "assets/prefabs/statisticsui.prefab");
+            var statisticsUiPrefab = AssetBundles.LoadPrefabSync("Prefabs/StatisticsUI");
             GameObject go = Object.Instantiate(statisticsUiPrefab);
             
             var rightPanel = GameObject.Find("Canvas(Clone)/Views/OverlayHUD/PersistentGameHudView(Clone)/Header/RightPanel");
