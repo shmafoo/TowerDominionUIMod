@@ -1,12 +1,37 @@
-# Build folders
-bin/
-obj/
-
-# Rider workspace files
-.idea/
-*.sln.iml
-
 # User-specific files
 *.user
 *.suo
 *.bak
+*.userprefs
+*.pidb
+*.dll
+*.pdb
+*.mdb
+*.exe
+*.booproj
+*.unityproj
+.DS_Store
+Thumbs.db
+
+# Unity generated folders
+UnityProject/[Ll]ibrary/
+UnityProject/[Tt]emp/
+UnityProject/[Oo]bj/
+UnityProject/[Bb]uild/
+UnityProject/[Bb]uilds/
+UnityProject/[Ll]ogs/
+UnityProject/[Aa]ddressables/
+UnityProject/.vs/
+UnityProject/.idea/
+UnityProject/.vscode/
+UnityProject/Assets/StreamingAssets/aa.meta
+UnityProject/Assets/StreamingAssets/aa/*
+UnityProject/Assets/AddressableAssetsData/*/*.bin*
+UnityProject/Assets/AddressableAssetsData/*/*.bundle*
+UnityProject/Assets/AddressableAssetsData/*/*.hash
+UnityProject/Assets/AddressableAssetsData/*/*.json
+
+# Rider project
+TDUIMOD/.idea/
+TDUIMOD/bin/
+TDUIMOD/obj/

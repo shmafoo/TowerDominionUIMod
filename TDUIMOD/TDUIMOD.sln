@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TowerDominionUIMod", "TowerDominionUIMod.csproj", "{E25B3D4A-0025-4EA9-8304-489E4150A9E7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F267878-F694-4BFA-9032-D4D73369F18D} = {1F267878-F694-4BFA-9032-D4D73369F18D}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E25B3D4A-0025-4EA9-8304-489E4150A9E7}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E25B3D4A-0025-4EA9-8304-489E4150A9E7}.Debug|Any CPU.Build.0 = Debug|x64
+		{E25B3D4A-0025-4EA9-8304-489E4150A9E7}.Release|Any CPU.ActiveCfg = Release|x64
+		{E25B3D4A-0025-4EA9-8304-489E4150A9E7}.Release|Any CPU.Build.0 = Release|x64
+	EndGlobalSection
+EndGlobal
