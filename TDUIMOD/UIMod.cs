@@ -13,6 +13,11 @@ public class UIMod : MelonMod
         AssetBundles.Initialize();
     }
 
+    public override void OnApplicationQuit()
+    {
+        ModOverlay.Instance.Cleanup();
+    }
+
     /// <summary>
     ///     Sets up view modification handlers when the Boot scene is loaded.
     /// </summary>
@@ -20,6 +25,24 @@ public class UIMod : MelonMod
     /// <param name="sceneName">The name of the initialized scene</param>
     public override void OnSceneWasInitialized(int buildIndex, string sceneName)
     {
-        if (sceneName == "Boot") ViewModRegistry.Initialize();
+        switch (sceneName)
+        {
+            case "Boot":
+                OnBootSceneInitialized();
+                break;
+            case "GameplayScene":
+                OnGameplaySceneInitialized();
+                break;
+        }
+    }
+
+    private void OnGameplaySceneInitialized()
+    {
+        ModOverlay.Instance.Initialize();
+    }
+
+    private void OnBootSceneInitialized()
+    {
+        ViewModRegistry.Initialize();
     }
 }

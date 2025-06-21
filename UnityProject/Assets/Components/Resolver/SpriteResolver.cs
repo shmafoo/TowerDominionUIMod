@@ -1,14 +1,11 @@
-#if (UNITY_EDITOR || UNITY_STANDALONE)
-using UnityEngine.UIElements;
-#endif
-
-using System;
 using UnityEngine;
+using UnityEngine.UI;
+
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
+using System;
 using Il2CppInterop.Runtime.InteropTypes.Fields;
 using MelonLoader;
 using TowerDominionUIMod.Core;
-using UnityEngine.UI;
 #endif
 
 namespace TowerDominionUIMod.Components.Resolver
@@ -25,14 +22,6 @@ namespace TowerDominionUIMod.Components.Resolver
 #else
         public Il2CppStringField spriteName;
 #endif
-
-        public void OnEnable()
-        {
-        }
-
-        public void OnDisable()
-        {
-        }
 
         public void Awake()
         {

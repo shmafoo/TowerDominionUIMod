@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Localization-Assets-Shared
+  m_Name: towerdominionuimod-Localization-Assets-Shared
   m_EditorClassIdentifier: 
-  m_GroupName: Localization-Assets-Shared
+  m_GroupName: towerdominionuimod-Localization-Assets-Shared
   m_Data:
     m_SerializedData: []
   m_GUID: ac2708b89d9af1548aef9edb2131ec29

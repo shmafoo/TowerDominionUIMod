@@ -103,11 +103,15 @@
         <Compile Include="..\UnityProject\Assets\Components\Resolver\SpriteResolver.cs">
             <Link>Components\Resolver\SpriteResolver.cs</Link>
         </Compile>
+        <Compile Include="..\UnityProject\Assets\Components\Resolver\UICameraResolver.cs">
+            <Link>Components\Resolver\UICameraResolver.cs</Link>
+        </Compile>
         <Compile Include="Core\AssetBundles.cs"/>
         <Compile Include="Core\FoeRegistry.cs"/>
         <Compile Include="Core\GameAssets.cs"/>
+        <Compile Include="Core\ModEvents.cs"/>
         <Compile Include="Core\ModifiedViewBase.cs"/>
-        <Compile Include="Core\ModOverlay.cs" />
+        <Compile Include="Core\ModOverlay.cs"/>
         <Compile Include="Core\ViewModRegistry.cs"/>
         <Compile Include="Core\ViewNameAttribute.cs"/>
         <Compile Include="Patches\CharacterSelectionView_Patch.cs"/>

@@ -35,7 +35,7 @@ public static class AssetBundles
 
     public static GameObject LoadPrefabSync(string assetAddress)
     {
-        var handle = Addressables.LoadAssetAsync<GameObject>("Prefabs/StatisticsUI");
+        var handle = Addressables.LoadAssetAsync<GameObject>(assetAddress);
         var prefab = handle.WaitForCompletion();
 
         if (handle.Status != AsyncOperationStatus.Succeeded || prefab == null)
