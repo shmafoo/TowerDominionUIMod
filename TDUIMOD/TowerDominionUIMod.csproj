@@ -107,6 +107,7 @@
         <Compile Include="Core\FoeRegistry.cs"/>
         <Compile Include="Core\GameAssets.cs"/>
         <Compile Include="Core\ModifiedViewBase.cs"/>
+        <Compile Include="Core\ModOverlay.cs" />
         <Compile Include="Core\ViewModRegistry.cs"/>
         <Compile Include="Core\ViewNameAttribute.cs"/>
         <Compile Include="Patches\CharacterSelectionView_Patch.cs"/>
