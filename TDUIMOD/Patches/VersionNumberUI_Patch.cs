@@ -16,24 +16,24 @@ using UnityEngine;
 /// <item><description>Adjusting the UI component size to accommodate the additional text</description></item>
 /// </list>
 /// </remarks>
-namespace TowerDominionUIMod.Patches
+namespace TowerDominionUIMod.Patches;
+
+[HarmonyPatch(typeof(VersionNumberUI))]
+internal static class VersionNumberUI_Patch
 {
-    [HarmonyPatch(typeof(VersionNumberUI))]
-    internal static class VersionNumberUI_Patch
+    /// <summary>
+    ///     Postfix patch for the Start method of VersionNumberUI that modifies the version text
+    ///     to include mod information and adjusts the component size for proper display.
+    /// </summary>
+    /// <param name="__instance">The instance of VersionNumberUI being patched</param>
+    [HarmonyPostfix]
+    [HarmonyPatch(nameof(VersionNumberUI.Start))]
+    private static void Start_Postfix(VersionNumberUI __instance)
     {
-        /// <summary>
-        /// Postfix patch for the Start method of VersionNumberUI that modifies the version text
-        /// to include mod information and adjusts the component size for proper display.
-        /// </summary>
-        /// <param name="__instance">The instance of VersionNumberUI being patched</param>
-        [HarmonyPostfix, HarmonyPatch(nameof(VersionNumberUI.Start))]
-        private static void Start_Postfix(VersionNumberUI __instance)
-        {
-            var versionUi = __instance.GetComponent<TextMeshProUGUI>();
-            versionUi.text = $"Tower Dominion UI Mod | Game: {versionUi.text}";
-            
-            // Stretch the text component or the text won't fit
-            __instance.GetComponent<RectTransform>().sizeDelta = new Vector2(1000, 100);
-        }
+        var versionUi = __instance.GetComponent<TextMeshProUGUI>();
+        versionUi.text = $"Tower Dominion UI Mod | Game: {versionUi.text}";
+
+        // Stretch the text component or the text won't fit
+        __instance.GetComponent<RectTransform>().sizeDelta = new Vector2(1000, 100);
     }
 }

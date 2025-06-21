@@ -32,6 +32,7 @@
     <NoWarn>0169,0649</NoWarn>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>

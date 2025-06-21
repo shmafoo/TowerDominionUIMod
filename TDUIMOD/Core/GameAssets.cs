@@ -1,37 +1,36 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-namespace TowerDominionUIMod.Core
+namespace TowerDominionUIMod.Core;
+
+public static class GameAssets
 {
-    public static class GameAssets
+    private static readonly Dictionary<string, Sprite> GameSprites = new();
+
+    static GameAssets()
     {
-        private static readonly Dictionary<string, Sprite> GameSprites = new ();
+        GetAllGameSprites();
+    }
 
-        static GameAssets()
-        {
-            GetAllGameSprites();
-        }
+    private static void GetAllGameSprites()
+    {
+        if (GameSprites.Count > 0)
+            return;
 
-        private static void GetAllGameSprites()
-        {
-            if (GameSprites.Count > 0)
-                return;
-            
-            var allSprites = Resources.FindObjectsOfTypeAll<Sprite>();
-            
-            foreach (var sprite in allSprites)
-            {
-                if (GameSprites.ContainsKey(sprite.name))
-                    continue;
-                
-                GameSprites.Add(sprite.name, sprite);
-            }
-        }
+        var allSprites = Resources.FindObjectsOfTypeAll<Sprite>();
 
-        public static Sprite GetGameSprite(string name)
+        foreach (var sprite in allSprites)
         {
-            var result = GameSprites.TryGetValue(name, out var sprite);
-            return sprite;
+            if (GameSprites.ContainsKey(sprite.name))
+                continue;
+
+            GameSprites.Add(sprite.name, sprite);
         }
+    }
+
+    public static Sprite GetGameSprite(string name)
+    {
+        var result = GameSprites.TryGetValue(name, out var sprite);
+        return sprite;
     }
 }

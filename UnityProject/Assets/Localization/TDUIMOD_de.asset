@@ -23,7 +23,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 100217647104
-    m_Localized: Zeig weitere Statistiken zum aktuellen Run an
+    m_Localized: Zeigt Statistiken zum aktuellen Run an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 404347786620928
+    m_Localized: "Alle w\xE4hlen"
     m_Metadata:
       m_Items: []
   references:

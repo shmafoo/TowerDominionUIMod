@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: StatisticsUI_Description
     m_Metadata:
       m_Items: []
+  - m_Id: 404347786620928
+    m_Key: SelectAll
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

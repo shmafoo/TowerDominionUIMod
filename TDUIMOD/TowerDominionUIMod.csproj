@@ -16,12 +16,12 @@
         <LangVersion>latestmajor</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
-      <DebugType>pdbonly</DebugType>
-      <Optimize>true</Optimize>
-      <DefineConstants>TRACE</DefineConstants>
-      <ErrorReport>prompt</ErrorReport>
-      <WarningLevel>4</WarningLevel>
-      <OutputPath>bin\x64\Release\</OutputPath>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <OutputPath>bin\x64\Release\</OutputPath>
         <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
@@ -31,96 +31,97 @@
         <DefineConstants>DEBUG;TRACE</DefineConstants>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
-      <OutputPath>bin\x64\Debug\</OutputPath>
+        <OutputPath>bin\x64\Debug\</OutputPath>
         <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="0Harmony">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\0Harmony.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\0Harmony.dll</HintPath>
         </Reference>
         <Reference Include="Assembly-CSharp">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppCopper.ViewManager.Code">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppCopper.ViewManager.Code.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppCopper.ViewManager.Code.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppInterop.Runtime">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
         </Reference>
         <Reference Include="Il2Cppmscorlib">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppSystem.Core">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppSystem.Core.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppSystem.Core.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppSystem.Drawing">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppSystem.Drawing.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppSystem.Drawing.dll</HintPath>
         </Reference>
         <Reference Include="System.Drawing.Primitives">
-          <HintPath>$(Net6Dir)\System.Drawing.Primitives.dll</HintPath>
+            <HintPath>$(Net6Dir)\System.Drawing.Primitives.dll</HintPath>
         </Reference>
         <Reference Include="MelonLoader">
             <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\MelonLoader.dll</HintPath>
         </Reference>
         <Reference Include="Unity.Addressables">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.Addressables.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.Addressables.dll</HintPath>
         </Reference>
         <Reference Include="Unity.Localization">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.Localization.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.Localization.dll</HintPath>
         </Reference>
         <Reference Include="Unity.ResourceManager">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.ResourceManager.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.ResourceManager.dll</HintPath>
         </Reference>
         <Reference Include="Unity.TextMeshPro">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AssetBundleModule">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.AssetBundleModule.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.AssetBundleModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.TextCoreFontEngineModule">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.TextRenderingModule">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.UI">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.UI.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.UI.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.UIModule">
-          <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.UIModule.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.UIModule.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsUI.cs">
-          <Link>Components\Custom\StatisticsUI.cs</Link>
+            <Link>Components\Custom\StatisticsUI.cs</Link>
         </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsView.cs">
-          <Link>Components\Custom\StatisticsView.cs</Link>
+            <Link>Components\Custom\StatisticsView.cs</Link>
         </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Resolver\SpriteResolver.cs">
-          <Link>Components\Resolver\SpriteResolver.cs</Link>
+            <Link>Components\Resolver\SpriteResolver.cs</Link>
         </Compile>
-        <Compile Include="Core\AssetBundles.cs" />
-        <Compile Include="Core\FoeRegistry.cs" />
-        <Compile Include="Core\GameAssets.cs" />
-        <Compile Include="Core\ModifiedViewBase.cs" />
-        <Compile Include="Core\ViewModRegistry.cs" />
-        <Compile Include="Core\ViewNameAttribute.cs" />
-        <Compile Include="Patches\CharacterSelectionView_Patch.cs" />
-        <Compile Include="Patches\EntityManager_Patch.cs" />
-        <Compile Include="Patches\VersionNumberUI_Patch.cs" />
-        <Compile Include="Patches\ViewManager_Patch.cs" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="UIMod.cs" />
-        <Compile Include="Utils\ModUtils.cs" />
-        <Compile Include="ViewMods\CharacterSelectionViewMod.cs" />
-        <Compile Include="ViewMods\PersistentGameHUDViewMod.cs" />
+        <Compile Include="Core\AssetBundles.cs"/>
+        <Compile Include="Core\FoeRegistry.cs"/>
+        <Compile Include="Core\GameAssets.cs"/>
+        <Compile Include="Core\ModifiedViewBase.cs"/>
+        <Compile Include="Core\ViewModRegistry.cs"/>
+        <Compile Include="Core\ViewNameAttribute.cs"/>
+        <Compile Include="Patches\CharacterSelectionView_Patch.cs"/>
+        <Compile Include="Patches\EntityManager_Patch.cs"/>
+        <Compile Include="Patches\VersionNumberUI_Patch.cs"/>
+        <Compile Include="Patches\ViewManager_Patch.cs"/>
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="UIMod.cs"/>
+        <Compile Include="Utils\GameUtils.cs"/>
+        <Compile Include="Utils\ModUtils.cs"/>
+        <Compile Include="ViewMods\CharacterSelectionViewMod.cs"/>
+        <Compile Include="ViewMods\PersistentGameHUDViewMod.cs"/>
     </ItemGroup>
     <ItemGroup>
-      <None Include="App.config" />
+        <None Include="App.config"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -131,13 +132,13 @@
     </Target>
     -->
     <Target Name="AfterBuild">
-		<!-- copy the built dll to the games mods folder -->
-		<Exec Command="copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ModsDir)&quot;" />
-		<!-- copy the built addressables to the mods folder -->
-		<Exec Command="copy &quot;$(UnityAddressablesDir)\*&quot; &quot;$(ModsDir)&quot;" />
-		<!-- Start the game to test instantly. Comment this out if you do not want this -->
-		<Exec Command="cd &quot;$(GameAbsoluteDir)&quot;" />
-		<Exec Command="&quot;$(GameAbsoluteDir)\tower-dominion.exe&quot;" />
+        <!-- copy the built dll to the games mods folder -->
+        <Exec Command="copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ModsDir)&quot;"/>
+        <!-- copy the built addressables to the mods folder -->
+        <Exec Command="copy &quot;$(UnityAddressablesDir)\*&quot; &quot;$(ModsDir)&quot;"/>
+        <!-- Start the game to test instantly. Comment this out if you do not want this -->
+        <Exec Command="cd &quot;$(GameAbsoluteDir)&quot;"/>
+        <Exec Command="&quot;$(GameAbsoluteDir)\tower-dominion.exe&quot;"/>
     </Target>
 
 </Project>

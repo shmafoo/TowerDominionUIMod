@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: Shows additional run statistics
     m_Metadata:
       m_Items: []
+  - m_Id: 404347786620928
+    m_Localized: Select All
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
