@@ -106,7 +106,6 @@
         <Compile Include="Core\AssetBundles.cs" />
         <Compile Include="Core\FoeRegistry.cs" />
         <Compile Include="Core\GameAssets.cs" />
-        <Compile Include="Core\IModifyView.cs" />
         <Compile Include="Core\ModifiedViewBase.cs" />
         <Compile Include="Core\ViewModRegistry.cs" />
         <Compile Include="Core\ViewNameAttribute.cs" />

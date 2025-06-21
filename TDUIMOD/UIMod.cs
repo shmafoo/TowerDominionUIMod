@@ -22,7 +22,7 @@ namespace TowerDominionUIMod
         {
             if (sceneName == "Boot")
             {
-                ViewModRegistry.SubscribeOnViewOpened();
+                ViewModRegistry.Initialize();
             }
         }
     }

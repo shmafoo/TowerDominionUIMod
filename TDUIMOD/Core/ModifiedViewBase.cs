@@ -3,20 +3,10 @@ using TowerDominionUIMod.Core;
 
 namespace TowerDominionUIMod.Core
 {
-    public abstract class ModifiedViewBase : IModifyView
+    public abstract class ModifiedViewBase
     {
-        public bool IsModified { get; set; }
-        public bool AlwaysModify { get; set; }
+        public abstract void ViewOpened();
 
-        public void ModifyView()
-        {
-            if (IsModified && !AlwaysModify)
-                return;
-
-            OnModify();
-            IsModified = true;
-        }
-
-        protected abstract void OnModify();
+        public abstract void ViewClosed();
     }
 }

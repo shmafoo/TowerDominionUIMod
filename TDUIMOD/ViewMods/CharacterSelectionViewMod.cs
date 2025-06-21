@@ -33,15 +33,15 @@ namespace TowerDominionUIMod.ViewMods
         /// <summary>
         /// Initializes the SelectAll button and sets up its UI components and event handlers.
         /// </summary>
-        protected override void OnModify()
+        public override void ViewOpened()
         {
-            AlwaysModify = true;
-            MelonLogger.Msg("Modifying CharacterSelectionView");
+            if (CharacterSelection != null)
+                return;
 
             CharacterSelection = Object.FindFirstObjectByType<CharacterSelectionView>();
             if (!CharacterSelection)
             {
-                MelonLogger.Error("Could not find CharacterSelectionView");
+                MelonLogger.Error($"Could not find CharacterSelectionView");
                 return;
             }
 
@@ -71,6 +71,8 @@ namespace TowerDominionUIMod.ViewMods
             SelectAllButtonClicked += OnSelectAllButtonClicked;
             selectAllStyledButton.onClick.AddListener(SelectAllButtonClicked);
         }
+
+        public override void ViewClosed() { }
 
         /// <summary>
         /// Handles the SelectAll button click event by selecting all modifiers in the ExpertModeMenu.

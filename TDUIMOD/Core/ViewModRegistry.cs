@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using Il2CppCopper.ViewManager.Code;
+using MelonLoader;
 
 namespace TowerDominionUIMod.Core
 {
@@ -10,21 +11,25 @@ namespace TowerDominionUIMod.Core
     /// </summary>
     public static class ViewModRegistry
     {
+        private delegate void ModifierCallback(ModifiedViewBase modifier);
+
         /// <summary>
         /// Dictionary storing view modifiers, keyed by their view names.
         /// </summary>
-        private static readonly Dictionary<string, IModifyView> Modifiers = new Dictionary<string, IModifyView>();
+        private static readonly Dictionary<string, ModifiedViewBase> Modifiers = new ();
 
         /// <summary>
         /// Static constructor that initializes the registry by discovering and instantiating all view modifiers.
         /// </summary>
-        static ViewModRegistry()
+        public static void Initialize()
         {
+            SubsribeEvents();
+            
             // Find all non-abstract types that implement IModifyView
             var modifierTypes = Assembly.GetExecutingAssembly()
                 .GetTypes()
                 .Where(t =>
-                    typeof(IModifyView).IsAssignableFrom(t) &&
+                    typeof(ModifiedViewBase).IsAssignableFrom(t) &&
                     !t.IsInterface &&
                     !t.IsAbstract);
 
@@ -35,9 +40,9 @@ namespace TowerDominionUIMod.Core
                 if (attr == null)
                     continue;
 
-                var instance = (IModifyView)System.Activator.CreateInstance(modifierType);
+                var instance = (ModifiedViewBase)System.Activator.CreateInstance(modifierType);
                 Modifiers[attr.Name] = instance;
-            }   
+            }
         }
 
         /// <summary>
@@ -63,23 +68,32 @@ namespace TowerDominionUIMod.Core
         /// <param name="name">The name of the view to get the modifier for.</param>
         /// <param name="modifier">When this method returns, contains the modifier if found; otherwise, null.</param>
         /// <returns>True if the modifier was found; otherwise, false.</returns>
-        public static bool TryGetModifier(string name, out IModifyView modifier)
+        public static bool TryGetModifier(string name, out ModifiedViewBase modifier)
         {
             return Modifiers.TryGetValue(name, out modifier);
         }
 
-        public static void SubscribeOnViewOpened()
+        #region Events
+        private static void SubsribeEvents()
         {
             ViewManager.Instance.onViewOpened += (ViewManager.ViewChangedMethod)OnViewOpened;
+            ViewManager.Instance.onViewClosed += (ViewManager.ViewChangedMethod)OnViewClosed;
         }
 
-        private static void OnViewOpened(int id)
+        private static void OnViewOpened(int id) => InvokeModifierCallback(id, (modifier) => modifier.ViewOpened());
+
+        private static void OnViewClosed(int id) => InvokeModifierCallback(id, (modifier) => modifier.ViewClosed());
+
+        private static void InvokeModifierCallback(int viewId, ModifierCallback modifierCallback)
         {
-            if (!TryGetNameFromId(id, out var viewName))
+            if (!TryGetNameFromId(viewId, out var viewName))
                 return;
-                    
-            if (viewName != null && TryGetModifier(viewName, out var modifier))
-                modifier.ModifyView();
+
+            if (viewName == null || !TryGetModifier(viewName, out var modifier))
+                return;
+            
+            modifierCallback(modifier);
         }
+        #endregion
     }
 }
