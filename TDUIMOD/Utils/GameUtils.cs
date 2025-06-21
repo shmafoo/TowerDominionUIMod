@@ -21,7 +21,7 @@ public static class GameUtils
         buttonInstance.active = false;
         buttonInstance.name = name;
         buttonInstance.transform.position = position ?? Vector3.zero;
-        
+
         var buttonTextComponent = buttonInstance.GetComponentInChildren<TextMeshProUGUI>();
         if (!buttonTextComponent)
         {

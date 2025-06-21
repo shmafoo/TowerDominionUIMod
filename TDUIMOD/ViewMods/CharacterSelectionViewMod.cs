@@ -54,7 +54,7 @@ public class CharacterSelectionViewMod : ModifiedViewBase
             CharacterSelection.footerGO.transform,
             new Vector3(5.5f, startButton.transform.position.y, 0.0f)
         );
-        
+
         // var buttonAsset = Resources.Load<GameObject>("prefabs/ui/BaseButton");
         // if (!buttonAsset)
         // {

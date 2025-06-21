@@ -11,48 +11,50 @@ using TowerDominionUIMod.Core;
 using UnityEngine.UI;
 #endif
 
-namespace TowerDominionUIMod.Components.Resolver;
+namespace TowerDominionUIMod.Components.Resolver
+{
 #if (UNITY_EDITOR || UNITY_STANDALONE)
         [RequireComponent(typeof(Image))]
 #else
-[RegisterTypeInIl2Cpp]
+    [RegisterTypeInIl2Cpp]
 #endif
-public class SpriteResolver : MonoBehaviour
-{
+    public class SpriteResolver : MonoBehaviour
+    {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
                 public string spriteName;
 #else
-    public Il2CppStringField spriteName;
+        public Il2CppStringField spriteName;
 #endif
 
-    public void OnEnable()
-    {
-    }
-
-    public void OnDisable()
-    {
-    }
-
-    public void Awake()
-    {
-#if !(UNITY_EDITOR || UNITY_STANDALONE)
-        // Look for a sprite with the name of spriteName in the games' assets
-        var sprite = GameAssets.GetGameSprite(spriteName);
-        if (!sprite)
+        public void OnEnable()
         {
-            MelonLogger.Error($"Could not find sprite with name {spriteName} in game assets.");
-            return;
         }
 
-        // Get the Image component and assign the game asset to it
-        var image = GetComponent<Image>();
-        image.sprite = sprite;
+        public void OnDisable()
+        {
+        }
+
+        public void Awake()
+        {
+#if !(UNITY_EDITOR || UNITY_STANDALONE)
+            // Look for a sprite with the name of spriteName in the games' assets
+            var sprite = GameAssets.GetGameSprite(spriteName);
+            if (!sprite)
+            {
+                MelonLogger.Error($"Could not find sprite with name {spriteName} in game assets.");
+                return;
+            }
+
+            // Get the Image component and assign the game asset to it
+            var image = GetComponent<Image>();
+            image.sprite = sprite;
 #endif
-    }
+        }
 
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
-    public SpriteResolver(IntPtr ptr) : base(ptr)
-    {
-    }
+        public SpriteResolver(IntPtr ptr) : base(ptr)
+        {
+        }
 #endif
+    }
 }

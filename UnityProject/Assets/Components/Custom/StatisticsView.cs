@@ -11,10 +11,10 @@ using MelonLoader;
 #endif
 using UnityEngine;
 
-namespace TowerDominionUIMod.Components.Custom;
-
-public class StatisticsView : BasicView
+namespace TowerDominionUIMod.Components.Custom
 {
+    public class StatisticsView : BasicView
+    {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
         [SerializeField]
         private RectTransform root;
@@ -22,23 +22,24 @@ public class StatisticsView : BasicView
         [SerializeField]
         private StyledButton closeButton;
 #else
-    public Il2CppReferenceField<RectTransform> root;
-    public Il2CppReferenceField<StyledButton> closeButton;
+        public Il2CppReferenceField<RectTransform> root;
+        public Il2CppReferenceField<StyledButton> closeButton;
 #endif
 
-    public override void Initialize(ViewActionComplete onInitializationComplete)
-    {
+        public override void Initialize(ViewActionComplete onInitializationComplete)
+        {
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
-        MelonLogger.Msg("StatisticsView.Initialize() called!");
-        onInitializationComplete.Invoke();
+            MelonLogger.Msg("StatisticsView.Initialize() called!");
+            onInitializationComplete.Invoke();
 #endif
-    }
+        }
 
-    public void CloseButtonClick()
-    {
-    }
+        public void CloseButtonClick()
+        {
+        }
 
-    public void CloseView()
-    {
+        public void CloseView()
+        {
+        }
     }
 }

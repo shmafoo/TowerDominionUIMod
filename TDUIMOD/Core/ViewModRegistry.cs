@@ -25,11 +25,11 @@ public static class ViewModRegistry
 
         // Find all non-abstract types that implement IModifyView
         var modifierTypes = Assembly.GetExecutingAssembly()
-            .GetTypes()
-            .Where(t =>
-                typeof(ModifiedViewBase).IsAssignableFrom(t) &&
-                !t.IsInterface &&
-                !t.IsAbstract);
+                                    .GetTypes()
+                                    .Where(t =>
+                                        typeof(ModifiedViewBase).IsAssignableFrom(t) &&
+                                        !t.IsInterface &&
+                                        !t.IsAbstract);
 
         // Create instances of found modifiers and register them by their view names
         foreach (var modifierType in modifierTypes)
@@ -74,7 +74,7 @@ public static class ViewModRegistry
 
     private delegate void ModifierCallback(ModifiedViewBase modifier);
 
-    #region Events
+#region Events
 
     private static void SubsribeEvents()
     {
@@ -103,5 +103,5 @@ public static class ViewModRegistry
         modifierCallback(modifier);
     }
 
-    #endregion
+#endregion
 }
