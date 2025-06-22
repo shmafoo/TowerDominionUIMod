@@ -94,11 +94,11 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsUI.cs">
-            <Link>Components\Custom\StatisticsUI.cs</Link>
-        </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsView.cs">
             <Link>Components\Custom\StatisticsView.cs</Link>
+        </Compile>
+        <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsUI.cs">
+            <Link>Components\Custom\StatisticsUI.cs</Link>
         </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Resolver\SpriteResolver.cs">
             <Link>Components\Resolver\SpriteResolver.cs</Link>
@@ -140,7 +140,8 @@
         <!-- copy the built dll to the games mods folder -->
         <Exec Command="copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ModsDir)&quot;"/>
         <!-- copy the built addressables to the mods folder -->
-        <Exec Command="copy &quot;$(UnityAddressablesDir)\*&quot; &quot;$(ModsDir)&quot;"/>
+        <Exec Command="copy &quot;$(UnityAddressablesDir)\*.bundle&quot; &quot;$(ModsDir)&quot;"/>
+		<Exec Command="copy &quot;$(UnityAddressablesDir)\*.json&quot; &quot;$(ModsDir)&quot;"/>
         <!-- Start the game to test instantly. Comment this out if you do not want this -->
         <Exec Command="cd &quot;$(GameAbsoluteDir)&quot;"/>
         <Exec Command="&quot;$(GameAbsoluteDir)\tower-dominion.exe&quot;"/>

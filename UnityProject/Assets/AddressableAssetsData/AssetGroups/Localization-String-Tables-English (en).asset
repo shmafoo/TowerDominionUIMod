@@ -10,25 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: towerdominionuimod-Built In Data
+  m_Name: Localization-String-Tables-English (en)
   m_EditorClassIdentifier: 
-  m_GroupName: towerdominionuimod-Built In Data
+  m_GroupName: Localization-String-Tables-English (en)
   m_Data:
     m_SerializedData: []
-  m_GUID: 1461956269e3e4d428bc946b1182ff0a
+  m_GUID: b3ce0c15d5b40c441a3cac07a81dc746
   m_SerializeEntries:
-  - m_GUID: Resources
-    m_Address: Resources
+  - m_GUID: d6ffc2a8f4ee8e34887c75a39a247cb6
+    m_Address: TDUIMOD_en
     m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: EditorSceneList
-    m_Address: EditorSceneList
-    m_ReadOnly: 1
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 9f21f08859e3d2d419f0ac7a9905d4dd, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: c1f735ba1e2f0ee489632678a31d98dc, type: 2}
+    - {fileID: 11400000, guid: b33d25be4186c9948a4a559874cfdd0e, type: 2}
+    - {fileID: 11400000, guid: eb930218d75f78241a4c7e1a7b7fea48, type: 2}

@@ -11,7 +11,7 @@ using TowerDominionUIMod.Core;
 namespace TowerDominionUIMod.Components.Resolver
 {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-        [RequireComponent(typeof(Image))]
+    [RequireComponent(typeof(Image))]
 #else
     [RegisterTypeInIl2Cpp]
 #endif
@@ -37,6 +37,8 @@ namespace TowerDominionUIMod.Components.Resolver
             // Get the Image component and assign the game asset to it
             var image = GetComponent<Image>();
             image.sprite = sprite;
+
+            DestroyImmediate(this);
 #endif
         }
 

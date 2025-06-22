@@ -1,10 +1,11 @@
-#if (UNITY_EDITOR || UNITY_STANDALONE)
-using Nvizzio.Game.UI.Views;
-#else
-using Il2CppNvizzio.Game.UI.Tooltip;
-using MelonLoader;
-#endif
 using UnityEngine;
+
+#if (UNITY_EDITOR || UNITY_STANDALONE)
+#else
+using Il2CppInterop.Runtime.InteropTypes.Fields;
+using MelonLoader;
+using System;
+#endif
 
 namespace TowerDominionUIMod.Components.Custom
 {
@@ -14,22 +15,23 @@ namespace TowerDominionUIMod.Components.Custom
     public class StatisticsUI : MonoBehaviour
     {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
+        [SerializeField]
+        private StatisticsView statisticsView;
 #else
-        public SimpleTooltipData tooltipData;
+        // public Il2CppReferenceField<StatisticsView> statisticsView;
 #endif
-
-        public void Awake()
-        {
-#if !(UNITY_EDITOR || UNITY_STANDALONE)
-            tooltipData = GetComponent<SimpleTooltipData>();
-#endif
-        }
 
         public void OnButtonClicked()
         {
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
-            MelonLogger.Msg("Button clicked!");
+            // statisticsView.Value.gameObject.SetActive(!statisticsView.Value.gameObject.active);
 #endif
         }
+
+#if !(UNITY_EDITOR || UNITY_STANDALONE)
+        public StatisticsUI(IntPtr ptr) : base(ptr)
+        {
+        }
+#endif
     }
 }

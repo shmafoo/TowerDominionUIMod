@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: d23f276c6b05b3a499b1d7a96227be99
   m_currentHash:
     serializedVersion: 2
-    Hash: b2757af8bd0f97b299516072b92f4d30
+    Hash: 845304c041ce42bc824a18f8e28c808f
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
@@ -29,8 +29,8 @@ MonoBehaviour:
   m_ContiguousBundles: 1
   m_StripUnityVersionFromBundleBuild: 0
   m_DisableVisibleSubAssetRepresentations: 0
-  m_ShaderBundleNaming: 2
-  m_ShaderBundleCustomNaming: towerdominionuimod-unitybuiltinshaders
+  m_ShaderBundleNaming: 0
+  m_ShaderBundleCustomNaming: 
   m_MonoScriptBundleNaming: 0
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 

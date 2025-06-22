@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: towerdominionuimod-prefabs
+  m_Name: Prefabs
   m_EditorClassIdentifier: 
-  m_GroupName: towerdominionuimod-prefabs
+  m_GroupName: Prefabs
   m_Data:
     m_SerializedData: []
   m_GUID: b2eb9429dd2ae554bab7c248ae215b64

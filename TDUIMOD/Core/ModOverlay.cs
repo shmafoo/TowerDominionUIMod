@@ -1,4 +1,5 @@
 ﻿using System;
+using Il2Cpp;
 using MelonLoader;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -11,6 +12,8 @@ public class ModOverlay
     public static ModOverlay Instance => instance;
 
     private GameObject Overlay = null;
+    public GameObject Windows = null;
+    public GameObject TopPanel = null;
 
     public void Initialize()
     {
@@ -21,7 +24,9 @@ public class ModOverlay
 
         Overlay = Object.Instantiate(prefab);
         Overlay.SetActive(false);
-        MelonLogger.Msg($"Overlay {Overlay.name} created in scene {Overlay.scene.name}");
+
+        Windows = Overlay.transform.FindChildByName("Windows").gameObject;
+        TopPanel = Overlay.transform.FindChildByName("TopPanel").gameObject;
 
         SetupEvents();
     }

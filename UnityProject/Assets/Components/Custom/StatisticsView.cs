@@ -1,3 +1,5 @@
+using UnityEngine;
+
 #if (UNITY_EDITOR || UNITY_STANDALONE)
 using Copper.ViewManager.Code.Interfaces;
 using Nvizzio.Game.UI.Views;
@@ -8,11 +10,14 @@ using Il2CppNvizzio.Game.UI.Views;
 using Il2Cpp;
 using Il2CppInterop.Runtime.InteropTypes.Fields;
 using MelonLoader;
+using System;
 #endif
-using UnityEngine;
 
 namespace TowerDominionUIMod.Components.Custom
 {
+#if !(UNITY_EDITOR || UNITY_STANDALONE)
+    [RegisterTypeInIl2Cpp]
+#endif
     public class StatisticsView : BasicView
     {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
@@ -41,5 +46,11 @@ namespace TowerDominionUIMod.Components.Custom
         public void CloseView()
         {
         }
+
+#if !(UNITY_EDITOR || UNITY_STANDALONE)
+        public StatisticsView(IntPtr ptr) : base(ptr)
+        {
+        }
+#endif
     }
 }
