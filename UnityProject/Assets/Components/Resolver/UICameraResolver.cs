@@ -4,12 +4,13 @@ using UnityEngine.UI;
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
 using MelonLoader;
 using Il2Cpp;
+using System;
 #endif
 
 namespace TowerDominionUIMod.Components.Resolver
 {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-        [RequireComponent(typeof(Canvas))]
+    [RequireComponent(typeof(Canvas))]
 #else
     [RegisterTypeInIl2Cpp]
 #endif
@@ -25,10 +26,10 @@ namespace TowerDominionUIMod.Components.Resolver
                 MelonLogger.Error("Could not find UICamera.");
                 return;
             }
-            
+
             var canvas = GetComponent<Canvas>();
             canvas.worldCamera = uiCamera.GetComponent<Camera>();
-            
+
             // Remove the dummy camera
             var dummy = transform.FindChildByName("DummyUICamera");
             if (!dummy)
@@ -36,9 +37,16 @@ namespace TowerDominionUIMod.Components.Resolver
                 MelonLogger.Error("Could not find DummyUICamera in ModHUD");
                 return;
             }
-            
+
             DestroyImmediate(dummy.gameObject);
+            DestroyImmediate(this);
 #endif
         }
+
+#if !(UNITY_EDITOR || UNITY_STANDALONE)
+        public UICameraResolver(IntPtr ptr) : base(ptr)
+        {
+        }
+#endif
     }
 }
