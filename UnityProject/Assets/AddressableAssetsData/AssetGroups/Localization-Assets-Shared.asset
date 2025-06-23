@@ -15,16 +15,16 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_Data:
     m_SerializedData: []
-  m_GUID: ac2708b89d9af1548aef9edb2131ec29
+  m_GUID: 928605870ea2f05419ed2e4bda9ad81b
   m_SerializeEntries:
-  - m_GUID: f073804fd266d4e41aa2f7a1ca50a126
+  - m_GUID: 45de105f72b4f594eaae6378e7f1b1c1
     m_Address: Assets/Localization/TDUIMOD Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
-  m_Settings: {fileID: 11400000, guid: 9f21f08859e3d2d419f0ac7a9905d4dd, type: 2}
+  m_Settings: {fileID: 11400000, guid: 3b84dd3aa14b1f1498ba543ae8739436, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 14307d6f40ba89d4d8e187d0f2aa2100, type: 2}
-    - {fileID: 11400000, guid: 54e0ee31c79526549b3a9b2282587bc8, type: 2}
+    - {fileID: 11400000, guid: 48bf74c623ab4c1419cf42a04b96e70c, type: 2}
+    - {fileID: 11400000, guid: 3ae5155b02c22e44cabbd65186585d2c, type: 2}

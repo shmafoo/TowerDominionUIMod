@@ -10,7 +10,7 @@ public class UIMod : MelonMod
 {
     public override void OnInitializeMelon()
     {
-        AssetBundles.Initialize();
+        AssetBundles.Instance.Initialize();
     }
 
     public override void OnApplicationQuit()

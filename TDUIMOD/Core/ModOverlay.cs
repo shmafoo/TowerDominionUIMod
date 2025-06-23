@@ -20,13 +20,15 @@ public class ModOverlay
         if (Overlay != null)
             return;
 
-        var prefab = AssetBundles.LoadPrefabSync("Prefabs/ModHUD");
+        var prefab = AssetBundles.Instance.LoadPrefabSync("Prefabs/ModHUD", true);
+        if (!prefab)
+            return;
 
         Overlay = Object.Instantiate(prefab);
-        Overlay.SetActive(false);
+        Overlay?.SetActive(false);
 
-        Windows = Overlay.transform.FindChildByName("Windows").gameObject;
-        TopPanel = Overlay.transform.FindChildByName("TopPanel").gameObject;
+        Windows = Overlay?.transform.FindChildByName("Windows").gameObject;
+        TopPanel = Overlay?.transform.FindChildByName("TopPanel").gameObject;
 
         SetupEvents();
     }

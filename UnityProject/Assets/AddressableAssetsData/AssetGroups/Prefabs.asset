@@ -15,16 +15,15 @@ MonoBehaviour:
   m_GroupName: Prefabs
   m_Data:
     m_SerializedData: []
-  m_GUID: b2eb9429dd2ae554bab7c248ae215b64
+  m_GUID: b251eb04c7a4cd44d88a58fe7d72c311
   m_SerializeEntries:
-  - m_GUID: 79863ed1f50fe01458786ffbff43f807
-    m_Address: Prefabs/StatisticsUI
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 022b669b92ed1a34899e8200c1f357d3
     m_Address: Prefabs/StatisticsView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79863ed1f50fe01458786ffbff43f807
+    m_Address: Prefabs/StatisticsUI
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
@@ -36,8 +35,8 @@ MonoBehaviour:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: 9f21f08859e3d2d419f0ac7a9905d4dd, type: 2}
+  m_Settings: {fileID: 11400000, guid: 3b84dd3aa14b1f1498ba543ae8739436, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 447328899f226c64daf3e87c93f4916a, type: 2}
-    - {fileID: 11400000, guid: 8afd4aefe790f4c4f823113851d1af7d, type: 2}
+    - {fileID: 11400000, guid: 4aae9be3a1314824cb6d55bd439c9955, type: 2}
+    - {fileID: 11400000, guid: 159e2b4aafa241c43bb7afc12584ff62, type: 2}

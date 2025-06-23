@@ -13,24 +13,28 @@ MonoBehaviour:
   m_Name: TDUIMOD Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: TDUIMOD
-  m_TableCollectionNameGuidString: f073804fd266d4e41aa2f7a1ca50a126
+  m_TableCollectionNameGuidString: 45de105f72b4f594eaae6378e7f1b1c1
   m_Entries:
-  - m_Id: 28209836032
-    m_Key: StatisticsUI_Ttitle
+  - m_Id: 9522597888
+    m_Key: StatisticsUI_Title
     m_Metadata:
       m_Items: []
-  - m_Id: 100217647104
+  - m_Id: 49636921344
     m_Key: StatisticsUI_Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93693890560
+    m_Key: SelectAll
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 2418301521672273949
+    rid: 2418301599407407128
   references:
     version: 2
     RefIds:
-    - rid: 2418301521672273949
+    - rid: 2418301599407407128
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1750416715993
+        m_CustomEpoch: 1750713113405
