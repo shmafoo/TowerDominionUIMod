@@ -18,16 +18,16 @@ namespace TowerDominionUIMod.Components.Resolver
     public class SpriteResolver : MonoBehaviour
     {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-                public string spriteName;
+        public string spriteName;
 #else
         public Il2CppStringField spriteName;
 #endif
 
-        public void Awake()
+        public void Start()
         {
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
             // Look for a sprite with the name of spriteName in the games' assets
-            var sprite = GameAssets.GetGameSprite(spriteName);
+            var sprite = GameAssets.Instance.GetGameSprite(spriteName);
             if (!sprite)
             {
                 MelonLogger.Error($"Could not find sprite with name {spriteName} in game assets.");

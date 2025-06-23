@@ -38,6 +38,7 @@ public class UIMod : MelonMod
 
     private void OnGameplaySceneInitialized()
     {
+        GameAssets.Instance.Initialize();
         ModOverlay.Instance.Initialize();
     }
 

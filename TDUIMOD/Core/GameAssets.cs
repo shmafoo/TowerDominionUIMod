@@ -1,18 +1,22 @@
 ﻿using System.Collections.Generic;
+using MelonLoader;
 using UnityEngine;
 
 namespace TowerDominionUIMod.Core;
 
-public static class GameAssets
+public class GameAssets
 {
+    private static readonly GameAssets instance = new();
+    public static GameAssets Instance => instance;
+
     private static readonly Dictionary<string, Sprite> GameSprites = new();
 
-    static GameAssets()
+    public void Initialize()
     {
         GetAllGameSprites();
     }
 
-    private static void GetAllGameSprites()
+    private void GetAllGameSprites()
     {
         if (GameSprites.Count > 0)
             return;
@@ -28,9 +32,15 @@ public static class GameAssets
         }
     }
 
-    public static Sprite GetGameSprite(string name)
+    public Sprite GetGameSprite(string name)
     {
+        MelonLogger.Msg($"Trying to get game sprite with name {name}");
+        MelonLogger.Msg($"Dictionary size: {GameSprites.Count}");
+
         var result = GameSprites.TryGetValue(name, out var sprite);
+        MelonLogger.Msg($"Found: {result}");
+        MelonLogger.Msg($"Sprite: {sprite.name}");
+
         return sprite;
     }
 }

@@ -30,26 +30,6 @@ public class AssetBundles : Il2CppSystem.Object
     public void Initialize()
     {
         Catalog = LoadCatalog("catalog_towerdominionuimod.json");
-
-        MelonLogger.WriteLine();
-        for (var i = 0; i < Catalog.Keys.Count(); i++) MelonLogger.Msg($"{Catalog.Keys.ElementAt(i).ToString()}");
-        MelonLogger.WriteLine();
-
-
-        var selectedLocale = LocalizationSettings.SelectedLocale;
-        MelonLogger.Msg($"Selected locale: {selectedLocale.Identifier.Code}");
-
-        foreach (var l in LocalizationSettings.AvailableLocales.Locales)
-            MelonLogger.Msg($"Available locale: {l.Identifier.Code}");
-
-        var tablesHandle = LocalizationSettings
-                           .StringDatabase
-                           .GetAllTables()
-                           .WaitForCompletion();
-
-        var tables = tablesHandle.Cast<Il2CppSystem.Collections.Generic.List<StringTable>>();
-        foreach (var table in tables)
-            MelonLogger.Msg($"{table.TableCollectionName}: {table.Count} entries");
     }
 
     private IResourceLocator LoadCatalog(string catalogName)

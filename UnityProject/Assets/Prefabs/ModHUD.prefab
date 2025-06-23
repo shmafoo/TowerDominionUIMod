@@ -567,6 +567,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
+--- !u!114 &164467468558388356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1665563426877491278, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
+  m_PrefabInstance: {fileID: 1537147312507028682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10435c496142b8f4bb2a9926c597c8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1605773788920094874 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224566002897822800, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
@@ -644,6 +655,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3270224638668716574, guid: 79863ed1f50fe01458786ffbff43f807, type: 3}
+      propertyPath: statisticsView
+      value: 
+      objectReference: {fileID: 164467468558388356}
     - target: {fileID: 4294754388821256800, guid: 79863ed1f50fe01458786ffbff43f807, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
