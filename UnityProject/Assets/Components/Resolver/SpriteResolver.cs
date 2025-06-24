@@ -30,10 +30,7 @@ namespace TowerDominionUIMod.Components.Resolver
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
             var gameSprite = GameAssets.Instance.GetGameSprite((GameSprites)sprite.Value);
             if (!gameSprite)
-            {
-                MelonLogger.Error($"Could not find sprite with name {GameAssets.Instance.GetOriginalSpriteName((GameSprites)sprite.Value)} in game assets.");
                 return;
-            }
             
             // Get the Image component and assign the game asset to it
             var image = GetComponent<Image>();
