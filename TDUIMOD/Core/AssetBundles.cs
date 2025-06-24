@@ -4,8 +4,11 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Il2CppInterop.Runtime;
+using Il2CppInterop.Runtime.InteropTypes.Arrays;
+using Il2CppInterop.Runtime.Runtime;
 using Il2CppSystem.Collections;
 using Il2CppSystem.Linq;
+using Il2CppSystem.Resources;
 using MelonLoader;
 using MelonLoader.Utils;
 using TowerDominionUIMod.Utils;
@@ -45,6 +48,8 @@ public class AssetBundles : Il2CppSystem.Object
             MelonLogger.Error($"Exception: {handle.OperationException.Message}");
         }
 
+        Addressables.Release(handle);
+
         MelonLogger.Msg($"Loaded content catalog at {catalogPath}");
 
         return locator;
@@ -54,15 +59,17 @@ public class AssetBundles : Il2CppSystem.Object
     {
         var handle = Addressables.LoadAssetAsync<GameObject>(assetAddress);
         var prefab = handle.WaitForCompletion();
-
-        if (handle.Status == AsyncOperationStatus.Succeeded) return prefab;
-
+        var status = handle.Status; 
+        Addressables.Release(handle);
+        
+        if (status == AsyncOperationStatus.Succeeded) return prefab;
+        
         if (!tryForceLoad)
         {
             MelonLogger.Error($"Error while loading Prefab \"{assetAddress}\"");
             MelonLogger.Error($"Exception: {handle.OperationException.Message}");
         }
-
+        
         return tryForceLoad ? TryForceLoadPrefab(assetAddress) : null;
     }
 
@@ -87,18 +94,8 @@ public class AssetBundles : Il2CppSystem.Object
             return null;
         }
 
-        // For local loading, we need to get rid of the "protocoll"
-        // bundlePath = bundlePath.StartsWith("file://") ? bundlePath.Substring(7) : bundlePath;
-
         AssetBundle bundle = null;
-        try
-        {
-            bundle = AssetBundle.LoadFromFile(bundlePath);
-        }
-        catch (Exception e)
-        {
-            MelonLogger.Error(e);
-        }
+        bundle = AssetBundle.LoadFromFile(bundlePath);
 
         if (bundle == null)
         {
@@ -120,7 +117,10 @@ public class AssetBundles : Il2CppSystem.Object
             MelonLogger.Warning($"{assetName} was loaded with possible broken references.");
         else
             MelonLogger.Error($"Could not load asset \"{assetAddress}\" directly from bundle.");
-
+       
+        // UNLOADING THE BUNDLE HERE IS IMPORTANT
+        bundle.Unload(false);
+        
         return prefab;
     }
 }

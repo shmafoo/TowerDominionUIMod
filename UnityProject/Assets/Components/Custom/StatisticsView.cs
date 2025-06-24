@@ -1,15 +1,13 @@
 using UnityEngine;
-using Object = UnityEngine.Object;
+using UnityEngine.Localization;
 
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-using TMPro;
 #else
 using Il2Cpp;
 using Il2CppInterop.Runtime.InteropTypes.Fields;
 using MelonLoader;
 using System;
 using TowerDominionUIMod.Core;
-using UnityEngine.Localization;
 #endif
 
 namespace TowerDominionUIMod.Components.Custom
@@ -41,14 +39,19 @@ namespace TowerDominionUIMod.Components.Custom
                 );
 #endif
         }
-
-#if !(UNITY_EDITOR || UNITY_STANDALONE)
+        
         private GameObject AddLine(LocalizedString statisticTypeText)
         {
+#if !(UNITY_EDITOR || UNITY_STANDALONE)
             var prefab = AssetBundles.Instance.LoadPrefabSync("Prefabs/StatisticsLine", true);
-            return prefab != null ? Instantiate(prefab, body.Value) : null;
+            
+            return prefab != null ? Instantiate(prefab, transform.FindChildByName("Body")) : null;
+#else
+            return null;
+#endif
         }
-        
+
+#if !(UNITY_EDITOR || UNITY_STANDALONE)
         public StatisticsView(IntPtr ptr) : base(ptr)
         {
         }
