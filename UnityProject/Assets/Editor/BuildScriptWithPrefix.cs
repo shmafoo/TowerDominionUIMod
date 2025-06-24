@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using UnityEditor.AddressableAssets.Build;
 using UnityEditor.AddressableAssets.Build.DataBuilders;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
@@ -17,5 +20,16 @@ public class BuildScriptWithPrefix : BuildScriptPackedMode
     {
         var baseString = base.ConstructAssetBundleName(assetGroup, schema, info, assetBundleName);
         return Prefix + baseString;
+    }
+
+    protected override TResult DoBuild<TResult>(AddressablesDataBuilderInput builderInput, AddressableAssetsBuildContext aaContext)
+    {
+        foreach (var group in aaContext.bundleToAssetGroup)
+        {
+            Debug.Log($"{group.Key} -- {group.Value}");
+        }
+        var result = base.DoBuild<TResult>(builderInput, aaContext);
+        
+        return result;
     }
 }

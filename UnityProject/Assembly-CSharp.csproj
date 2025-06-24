@@ -52,6 +52,7 @@
     <Compile Include="Assets\GameDummyScripts\UniversalTooltipTrigger.cs" />
     <Compile Include="Assets\Components\Dummy\StyledButton.cs" />
     <Compile Include="Assets\GameDummyScripts\SelectableFeedback.cs" />
+    <Compile Include="Assets\Components\Resolver\TMP_Font_AssetResolver.cs" />
     <Compile Include="Assets\Components\Dummy\RequestCursorChange.cs" />
     <Compile Include="Assets\Generated\GameSprites.cs" />
     <Compile Include="Assets\GameDummyScripts\ExpertModeView.cs" />

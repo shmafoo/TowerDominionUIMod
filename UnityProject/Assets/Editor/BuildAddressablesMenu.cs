@@ -1,4 +1,6 @@
 #if UNITY_EDITOR
+using System.Linq;
+using OpenCover.Framework.Model;
 using UnityEditor;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Build;
@@ -7,7 +9,7 @@ using UnityEngine;
 internal static class BuildAddressablesMenu
 {
     private const string SettingsPath = "Assets/AddressableAssetsData/AddressableAssetSettings.asset";
-    private const string BuildScriptPath = "Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedMode.asset";
+    private const string BuildScriptPath = "Assets/Editor/BuildScriptWithPrefix.asset";
 
     [MenuItem("Tools/Build Addressables")]
     public static void BuildAddressables()
@@ -55,6 +57,11 @@ internal static class BuildAddressablesMenu
         {
             Debug.Log("✅ Addressables build completed!");
         }
+        
+        var excludeBundlePath = result.AssetBundleBuildResults.FirstOrDefault(r => r.FilePath.Contains("exclude"));
+        if (excludeBundlePath == null) return;
+        
+        Debug.Log($"Deleted excluded bundle: {FileUtil.DeleteFileOrDirectory(excludeBundlePath.FilePath)}");
     }
 }
 #endif

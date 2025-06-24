@@ -108,6 +108,9 @@
         <Compile Include="..\UnityProject\Assets\Components\Resolver\SpriteResolver.cs">
             <Link>Components\Resolver\SpriteResolver.cs</Link>
         </Compile>
+        <Compile Include="..\UnityProject\Assets\Components\Resolver\TMP_Font_AssetResolver.cs">
+          <Link>Components\Resolver\TMP_Font_AssetResolver.cs</Link>
+        </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Resolver\UICameraResolver.cs">
             <Link>Components\Resolver\UICameraResolver.cs</Link>
         </Compile>

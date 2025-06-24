@@ -110,7 +110,6 @@ public class AssetBundles : Il2CppSystem.Object
         var prefab = bundle.LoadAsset<GameObject>(assetName);
         if (prefab != null)
         {
-            MelonLogger.Warning($"Could not load asset \"{assetAddress}\" from catalog.");
             MelonLogger.Warning($"{assetName} was loaded with possible broken references.");
         }
         else

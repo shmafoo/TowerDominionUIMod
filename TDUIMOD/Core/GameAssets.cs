@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Il2CppTMPro;
 using MelonLoader;
 using TowerDominionUIMod.Generated;
 using UnityEngine;
@@ -11,11 +12,43 @@ public class GameAssets
     public static GameAssets Instance => instance;
 
     private static readonly Dictionary<string, Sprite> GameSprites = new();
+    private static readonly Dictionary<string, TMP_FontAsset> GameFonts = new();
+    // private static readonly Dictionary<string, Material> GameFontMaterials = new();
 
     public void Initialize()
     {
         GetAllGameSprites();
+        GetAllGameFonts();
     }
+
+    private void GetAllGameFonts()
+    {
+        var allFonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
+        foreach (var font in allFonts)
+        {
+            GameFonts[font.name] = font;
+            // GameFontMaterials[font.name] = font.material;
+            MelonLogger.Msg($"Font: {font.name}");
+        }
+
+        Debug.Log($"Found {allFonts.Count} fonts.");
+    }
+    
+    public TMP_FontAsset GetGameFont(string name)
+    {
+        if (!GameFonts.TryGetValue(name, out var font))
+            MelonLogger.Error($"Could not find font with name {name} in game assets.");
+
+        return font;
+    }
+    
+    // public Material GetGameFontMaterial(string name)
+    // {
+    //     if (!GameFontMaterials.TryGetValue(name, out var material))
+    //         MelonLogger.Error($"Could not find font with name {name} in game assets.");
+    //
+    //     return material;
+    // }
 
     private void GetAllGameSprites()
     {
