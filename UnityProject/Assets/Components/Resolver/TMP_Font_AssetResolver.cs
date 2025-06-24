@@ -33,7 +33,7 @@ namespace TowerDominionUIMod.Components.Resolver
             NotoSansJP,
             NotoSansKR,
             NotoSansSC,
-            NotoSansTC,
+            NotoSansTC
         }
 
         private Dictionary<GameFonts, string> GameFontsMapping = new()
@@ -49,12 +49,11 @@ namespace TowerDominionUIMod.Components.Resolver
             [GameFonts.NotoSansJP] = "NotoSansJP-Medium SDF - LanguageDropdown",
             [GameFonts.NotoSansKR] = "NotoSansKR-Medium SDF - LanguageDropdown",
             [GameFonts.NotoSansSC] = "NotoSansSC-Medium SDF - LanguageDropdown",
-            [GameFonts.NotoSansTC] = "NotoSansTC-Medium SDF - LanguageDropdown",
+            [GameFonts.NotoSansTC] = "NotoSansTC-Medium SDF - LanguageDropdown"
         };
 
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-        [SerializeField]
-        public GameFonts font;
+        [SerializeField] public GameFonts font;
 #else
         public Il2CppValueField<int> font;
 #endif
@@ -64,7 +63,7 @@ namespace TowerDominionUIMod.Components.Resolver
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
             var fontName = GameFontsMapping[(GameFonts)font.Value];
             var fontAsset = GameAssets.Instance.GetGameFont(fontName);
-            
+
             var tmpro = GetComponent<TextMeshProUGUI>();
             tmpro.font = fontAsset;
             tmpro.material = fontAsset.material;
@@ -72,12 +71,11 @@ namespace TowerDominionUIMod.Components.Resolver
             DestroyImmediate(this);
 #endif
         }
-        
+
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
         public TMP_Font_AssetResolver(IntPtr ptr) : base(ptr)
         {
         }
 #endif
-        
     }
 }

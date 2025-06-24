@@ -1,4 +1,5 @@
 // Place this in Assets/Editor/EnumGenerator.cs
+
 using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -16,13 +17,13 @@ public static class GameSpriteEnumGenerator
     public static void GenerateGameSpritesEnum()
     {
         // Find all sprite assets in the folder
-        string[] guids = AssetDatabase.FindAssets("t:Sprite", new[] {SpriteFolder});
-        List<string> names = guids
-            .Select(AssetDatabase.GUIDToAssetPath)
-            .Select(Path.GetFileNameWithoutExtension)
-            .Distinct()
-            .OrderBy(n => n)
-            .ToList();
+        var guids = AssetDatabase.FindAssets("t:Sprite", new[] { SpriteFolder });
+        var names = guids
+                    .Select(AssetDatabase.GUIDToAssetPath)
+                    .Select(Path.GetFileNameWithoutExtension)
+                    .Distinct()
+                    .OrderBy(n => n)
+                    .ToList();
 
         // Generate (and preserve existing enum values if needed)
         WriteEnumFile(EnumFilePath, EnumName, names);
@@ -39,23 +40,21 @@ public static class GameSpriteEnumGenerator
             writer.WriteLine($"    public enum {enumName}");
             writer.WriteLine("    {");
 
-            foreach (string name in values)
-            {
-                writer.WriteLine($"        {SanitizeName(name)},");
-            }
+            foreach (var name in values) writer.WriteLine($"        {SanitizeName(name)},");
 
             writer.WriteLine("    }");
-            
+
             writer.WriteLine();
             writer.WriteLine("    public static class GameSpritesExtensions");
             writer.WriteLine("    {");
-            writer.WriteLine("        public static string Get(this GameSprites gs) => gs.ToString().Replace(\"sprite_\", \"\").Replace(\"_DOT_\", \".\");");
+            writer.WriteLine(
+                "        public static string Get(this GameSprites gs) => gs.ToString().Replace(\"sprite_\", \"\").Replace(\"_DOT_\", \".\");");
             writer.WriteLine("    }");
-            
+
             writer.WriteLine("}");
         }
     }
-    
+
     private static string SanitizeName(string name)
     {
         return $"sprite_{name.Replace(".", "_DOT_")}";

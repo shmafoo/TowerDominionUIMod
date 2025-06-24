@@ -10,20 +10,15 @@ public class ScaleFeedback : SelectableFeedback
 {
     public RectTransform[] targetTransforms;
 
-    [SerializeField]
-    private float _highlightedScale;
+    [SerializeField] private float _highlightedScale;
 
-    [SerializeField]
-    private float _pressedScale;
+    [SerializeField] private float _pressedScale;
 
-    [SerializeField]
-    private float _selectedScale;
+    [SerializeField] private float _selectedScale;
 
-    [SerializeField]
-    private float _disabledScale;
+    [SerializeField] private float _disabledScale;
 
-    [SerializeField]
-    private float _isOnScale;
+    [SerializeField] private float _isOnScale;
 
     private readonly List<Vector3> _initialScales;
 
@@ -33,16 +28,29 @@ public class ScaleFeedback : SelectableFeedback
 
     private bool _isRunning;
 
-    private void Awake() { }
+    private void Awake()
+    {
+    }
 
-    protected override void OnStateTransition(StyledSelectableState newState) { }
+    protected override void OnStateTransition(StyledSelectableState newState)
+    {
+    }
 
-    private void ScaleToNormal() { }
+    private void ScaleToNormal()
+    {
+    }
 
-    private void ScaleTo(float amount) { }
+    private void ScaleTo(float amount)
+    {
+    }
 
-    private IEnumerator PlayScale(List<Vector3> endValues) => null;
+    private IEnumerator PlayScale(List<Vector3> endValues)
+    {
+        return null;
+    }
 
-    protected override void ResetState() { }
+    protected override void ResetState()
+    {
+    }
 }
 #endif

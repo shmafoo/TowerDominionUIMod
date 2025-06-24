@@ -7,16 +7,21 @@ namespace Nvizzio.Game.UI
 {
     public class RequestCursorChange : MonoBehaviour, IPointerEnterHandler, IEventSystemHandler, IPointerExitHandler
     {
-        [SerializeField]
-        private CursorType cursorType;
+        [SerializeField] private CursorType cursorType;
 
         private bool isPointerOver;
 
-        public void SetCursor(CursorType cursorType) { }
+        public void SetCursor(CursorType cursorType)
+        {
+        }
 
-        public void OnPointerEnter(PointerEventData eventData) { }
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+        }
 
-        public void OnPointerExit(PointerEventData eventData) { }
+        public void OnPointerExit(PointerEventData eventData)
+        {
+        }
     }
 }
 #endif

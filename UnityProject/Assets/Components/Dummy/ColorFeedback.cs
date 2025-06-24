@@ -11,23 +11,17 @@ public class ColorFeedback : SelectableFeedback
 {
     public Graphic[] targetGraphics;
 
-    [SerializeField]
-    private Color _normalColor;
+    [SerializeField] private Color _normalColor;
 
-    [SerializeField]
-    private Color _highlightedColor;
+    [SerializeField] private Color _highlightedColor;
 
-    [SerializeField]
-    private Color _pressedColor;
+    [SerializeField] private Color _pressedColor;
 
-    [SerializeField]
-    private Color _selectedColor;
+    [SerializeField] private Color _selectedColor;
 
-    [SerializeField]
-    private Color _disabledColor;
+    [SerializeField] private Color _disabledColor;
 
-    [SerializeField]
-    private Color _isOnColor;
+    [SerializeField] private Color _isOnColor;
 
     private WaitForEndOfFrame _waitForEndOfFrame;
 
@@ -35,14 +29,25 @@ public class ColorFeedback : SelectableFeedback
 
     private bool _isRunning;
 
-    private void Awake() { }
+    private void Awake()
+    {
+    }
 
-    protected override void OnStateTransition(StyledSelectableState newState) { }
+    protected override void OnStateTransition(StyledSelectableState newState)
+    {
+    }
 
-    private void FadeColorTo(Color color) { }
+    private void FadeColorTo(Color color)
+    {
+    }
 
-    private IEnumerator PlayFadeColor(Color endValue) => null;
+    private IEnumerator PlayFadeColor(Color endValue)
+    {
+        return null;
+    }
 
-    protected override void ResetState() { }
+    protected override void ResetState()
+    {
+    }
 }
 #endif

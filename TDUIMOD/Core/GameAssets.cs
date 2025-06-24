@@ -13,7 +13,6 @@ public class GameAssets
 
     private static readonly Dictionary<string, Sprite> GameSprites = new();
     private static readonly Dictionary<string, TMP_FontAsset> GameFonts = new();
-    // private static readonly Dictionary<string, Material> GameFontMaterials = new();
 
     public void Initialize()
     {
@@ -25,15 +24,9 @@ public class GameAssets
     {
         var allFonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
         foreach (var font in allFonts)
-        {
             GameFonts[font.name] = font;
-            // GameFontMaterials[font.name] = font.material;
-            MelonLogger.Msg($"Font: {font.name}");
-        }
-
-        Debug.Log($"Found {allFonts.Count} fonts.");
     }
-    
+
     public TMP_FontAsset GetGameFont(string name)
     {
         if (!GameFonts.TryGetValue(name, out var font))
@@ -41,14 +34,6 @@ public class GameAssets
 
         return font;
     }
-    
-    // public Material GetGameFontMaterial(string name)
-    // {
-    //     if (!GameFontMaterials.TryGetValue(name, out var material))
-    //         MelonLogger.Error($"Could not find font with name {name} in game assets.");
-    //
-    //     return material;
-    // }
 
     private void GetAllGameSprites()
     {
@@ -70,13 +55,11 @@ public class GameAssets
     {
         return GetGameSprite(GetOriginalSpriteName(sprite));
     }
-    
+
     public Sprite GetGameSprite(string name)
     {
         if (!GameSprites.TryGetValue(name, out var sprite))
-        {
             MelonLogger.Error($"Could not find sprite with name {name} in game assets.");
-        }
 
         return sprite;
     }

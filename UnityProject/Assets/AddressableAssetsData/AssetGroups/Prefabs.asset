@@ -20,7 +20,8 @@ MonoBehaviour:
   - m_GUID: 022b669b92ed1a34899e8200c1f357d3
     m_Address: Prefabs/StatisticsView
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79863ed1f50fe01458786ffbff43f807
     m_Address: Prefabs/StatisticsUI
@@ -30,6 +31,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e98cc4bdce72c143a8a02acceca7d29
     m_Address: Prefabs/ModHUD
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92e5d3d8f40dbe341a4e9d485be1d220
+    m_Address: Prefabs/StatisticsLine
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI

@@ -32,10 +32,11 @@ internal static class BuildAddressablesMenu
 
         if (scriptObj is IDataBuilder builder)
         {
-            int index = settings.DataBuilders.IndexOf(scriptObj);
+            var index = settings.DataBuilders.IndexOf(scriptObj);
             if (index < 0)
             {
-                Debug.LogError($"❌ The build script asset is not present in the 'Data Builders' list in Addressables Settings.");
+                Debug.LogError(
+                    $"❌ The build script asset is not present in the 'Data Builders' list in Addressables Settings.");
                 return;
             }
 
@@ -50,17 +51,13 @@ internal static class BuildAddressablesMenu
         // Build Addressables
         AddressableAssetSettings.BuildPlayerContent(out var result);
         if (!string.IsNullOrEmpty(result.Error))
-        {
             Debug.LogError("❌ Addressables build failed: " + result.Error);
-        }
         else
-        {
             Debug.Log("✅ Addressables build completed!");
-        }
-        
+
         var excludeBundlePath = result.AssetBundleBuildResults.FirstOrDefault(r => r.FilePath.Contains("exclude"));
         if (excludeBundlePath == null) return;
-        
+
         Debug.Log($"Deleted excluded bundle: {FileUtil.DeleteFileOrDirectory(excludeBundlePath.FilePath)}");
     }
 }

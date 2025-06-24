@@ -20,5 +20,8 @@ public class ViewInfo : ScriptableObject
     public bool HasName;
     public string Name;
 
-    public static int Compare(ViewInfo a, ViewInfo b) => 0;
+    public static int Compare(ViewInfo a, ViewInfo b)
+    {
+        return 0;
+    }
 }

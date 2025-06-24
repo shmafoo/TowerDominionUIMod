@@ -1,5 +1,7 @@
 // This file is auto-generated. Do not edit.
-namespace TowerDominionUIMod.Generated {
+
+namespace TowerDominionUIMod.Generated
+{
     public enum GameSprites
     {
         sprite_512,
@@ -956,11 +958,14 @@ namespace TowerDominionUIMod.Generated {
         sprite_weapon_unknown,
         sprite_White1px,
         sprite_xenoprognosis_modular_core,
-        sprite_zone_slot_icon,
+        sprite_zone_slot_icon
     }
 
     public static class GameSpritesExtensions
     {
-        public static string Get(this GameSprites gs) => gs.ToString().Replace("sprite_", "").Replace("_DOT_", ".");
+        public static string Get(this GameSprites gs)
+        {
+            return gs.ToString().Replace("sprite_", "").Replace("_DOT_", ".");
+        }
     }
 }

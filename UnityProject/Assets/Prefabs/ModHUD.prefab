@@ -422,6 +422,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114162049945975739, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114162049945975739, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7861533939269026364}
+    - target: {fileID: 114162049945975739, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114162049945975739, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TowerDominionUIMod.Components.Custom.StatisticsUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114162049945975739, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 224304202141266362, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -578,6 +598,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10435c496142b8f4bb2a9926c597c8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1605681113416180475 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224490729493505585, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
+  m_PrefabInstance: {fileID: 1537147312507028682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1605773788920094874 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224566002897822800, guid: 022b669b92ed1a34899e8200c1f357d3, type: 3}
@@ -656,6 +681,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3270224638668716574, guid: 79863ed1f50fe01458786ffbff43f807, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 1605681113416180475}
+    - target: {fileID: 3270224638668716574, guid: 79863ed1f50fe01458786ffbff43f807, type: 3}
       propertyPath: statisticsView
       value: 
       objectReference: {fileID: 164467468558388356}
@@ -697,3 +726,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1667294328579084113, guid: 79863ed1f50fe01458786ffbff43f807, type: 3}
   m_PrefabInstance: {fileID: 4646567529494018082}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7861533939269026364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3270224638668716574, guid: 79863ed1f50fe01458786ffbff43f807, type: 3}
+  m_PrefabInstance: {fileID: 4646567529494018082}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c70a0075ddef999428cfa496782beac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

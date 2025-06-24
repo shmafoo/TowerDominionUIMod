@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: Select All
     m_Metadata:
       m_Items: []
+  - m_Id: 311640869785600
+    m_Localized: 'Natural Odds:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

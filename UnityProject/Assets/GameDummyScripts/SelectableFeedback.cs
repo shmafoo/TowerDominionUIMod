@@ -7,23 +7,17 @@ public class SelectableFeedback : MonoBehaviour
 
     public StyledSelectableState currentState;
 
-    [SerializeField]
-    protected bool _onHighlighted;
+    [SerializeField] protected bool _onHighlighted;
 
-    [SerializeField]
-    protected bool _onPress;
+    [SerializeField] protected bool _onPress;
 
-    [SerializeField]
-    protected bool _onSelected;
+    [SerializeField] protected bool _onSelected;
 
-    [SerializeField]
-    protected bool _onDisabled;
+    [SerializeField] protected bool _onDisabled;
 
-    [SerializeField]
-    protected bool _onIsOn;
+    [SerializeField] protected bool _onIsOn;
 
-    [SerializeField]
-    protected float _fadeDuration;
+    [SerializeField] protected float _fadeDuration;
 
     protected bool _disabled;
 
@@ -45,18 +39,28 @@ public class SelectableFeedback : MonoBehaviour
 
     public bool IsDisabled => false;
 
-    public StyledSelectableState SelectableState => default(StyledSelectableState);
+    public StyledSelectableState SelectableState => default;
 
     public IStyledSelectable StyledSelectable => null;
 
-    private void OnEnable() { }
+    private void OnEnable()
+    {
+    }
 
-    private void OnDisable() { }
+    private void OnDisable()
+    {
+    }
 
-    private void OnStateUpdate() { }
+    private void OnStateUpdate()
+    {
+    }
 
-    protected virtual void OnStateTransition(StyledSelectableState newState) { }
+    protected virtual void OnStateTransition(StyledSelectableState newState)
+    {
+    }
 
-    protected virtual void ResetState() { }
+    protected virtual void ResetState()
+    {
+    }
 }
 #endif

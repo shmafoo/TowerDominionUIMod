@@ -15,8 +15,7 @@ namespace TowerDominionUIMod.Components.Custom
     public class StatisticsUI : MonoBehaviour
     {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-        [SerializeField]
-        private StatisticsView statisticsView;
+        [SerializeField] private StatisticsView statisticsView;
 #else
         public Il2CppReferenceField<StatisticsView> statisticsView;
 #endif

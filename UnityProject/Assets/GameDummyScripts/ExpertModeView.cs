@@ -5,27 +5,24 @@ using UnityEngine;
 
 namespace Nvizzio.Game.UI
 {
-	public class ExpertModeView : BasicView
-	{
-		[SerializeField]
-		private RectTransform root;
+    public class ExpertModeView : BasicView
+    {
+        [SerializeField] private RectTransform root;
 
-		[SerializeField]
-		private StyledButton closeButton;
+        [SerializeField] private StyledButton closeButton;
 
-		[SerializeField]
-		private TextMeshProUGUI expertScoreLabel;
+        [SerializeField] private TextMeshProUGUI expertScoreLabel;
 
-		public override void Initialize(ViewActionComplete onInitializationComplete)
-		{
-		}
+        public override void Initialize(ViewActionComplete onInitializationComplete)
+        {
+        }
 
-		public void CloseButtonClick()
-		{
-		}
+        public void CloseButtonClick()
+        {
+        }
 
-		public void CloseView()
-		{
-		}
-	}
+        public void CloseView()
+        {
+        }
+    }
 }

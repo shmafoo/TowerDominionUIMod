@@ -19,8 +19,7 @@ namespace TowerDominionUIMod.Components.Resolver
     public class SpriteResolver : MonoBehaviour
     {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-        [SerializeField]
-        public GameSprites sprite;
+        [SerializeField] public GameSprites sprite;
 #else
         public Il2CppValueField<int> sprite;
 #endif
@@ -31,11 +30,11 @@ namespace TowerDominionUIMod.Components.Resolver
             var gameSprite = GameAssets.Instance.GetGameSprite((GameSprites)sprite.Value);
             if (!gameSprite)
                 return;
-            
+
             // Get the Image component and assign the game asset to it
             var image = GetComponent<Image>();
             image.sprite = gameSprite;
-            
+
             DestroyImmediate(this);
 #endif
         }

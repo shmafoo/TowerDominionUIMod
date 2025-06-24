@@ -20,6 +20,8 @@ public interface IStyledSelectable
 
     void SetNavigation(IStyledSelectable up, IStyledSelectable down, IStyledSelectable right, IStyledSelectable left);
 
-    static IStyledSelectable() { }
+    static IStyledSelectable()
+    {
+    }
 }
 #endif

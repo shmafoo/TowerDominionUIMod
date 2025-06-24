@@ -50,15 +50,7 @@ public class ModOverlay
         ModEvents.OnHideModOverlay -= HideOverlay;
     }
 
-    private void ShowOverlay()
-    {
-        MelonLogger.Msg($"Showing overlay {Overlay.active}");
-        Overlay?.SetActive(true);
-    }
+    private void ShowOverlay() => Overlay?.SetActive(true);
 
-    private void HideOverlay()
-    {
-        MelonLogger.Msg($"Hiding overlay {Overlay.active}");
-        Overlay?.SetActive(false);
-    }
+    private void HideOverlay() => Overlay?.SetActive(false);
 }

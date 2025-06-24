@@ -88,9 +88,17 @@ public class AssetBundles : Il2CppSystem.Object
         }
 
         // For local loading, we need to get rid of the "protocoll"
-        bundlePath = bundlePath.StartsWith("file://") ? bundlePath.Substring(7) : bundlePath;
+        // bundlePath = bundlePath.StartsWith("file://") ? bundlePath.Substring(7) : bundlePath;
 
-        var bundle = AssetBundle.LoadFromFile(bundlePath);
+        AssetBundle bundle = null;
+        try
+        {
+            bundle = AssetBundle.LoadFromFile(bundlePath);
+        }
+        catch (Exception e)
+        {
+            MelonLogger.Error(e);
+        }
 
         if (bundle == null)
         {
@@ -109,13 +117,9 @@ public class AssetBundles : Il2CppSystem.Object
 
         var prefab = bundle.LoadAsset<GameObject>(assetName);
         if (prefab != null)
-        {
             MelonLogger.Warning($"{assetName} was loaded with possible broken references.");
-        }
         else
-        {
             MelonLogger.Error($"Could not load asset \"{assetAddress}\" directly from bundle.");
-        }
 
         return prefab;
     }
