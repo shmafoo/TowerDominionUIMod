@@ -53,6 +53,7 @@
     <Compile Include="Assets\Components\Dummy\StyledButton.cs" />
     <Compile Include="Assets\GameDummyScripts\SelectableFeedback.cs" />
     <Compile Include="Assets\Components\Dummy\RequestCursorChange.cs" />
+    <Compile Include="Assets\Generated\GameSprites.cs" />
     <Compile Include="Assets\GameDummyScripts\ExpertModeView.cs" />
     <Compile Include="Assets\GameDummyScripts\CursorTypes.cs" />
     <Compile Include="Assets\GameDummyScripts\ViewInfo.cs" />

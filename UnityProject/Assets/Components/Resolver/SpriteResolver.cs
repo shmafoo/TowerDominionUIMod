@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TowerDominionUIMod.Generated;
 
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
 using System;
@@ -18,26 +19,26 @@ namespace TowerDominionUIMod.Components.Resolver
     public class SpriteResolver : MonoBehaviour
     {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-        public string spriteName;
+        [SerializeField]
+        public GameSprites sprite;
 #else
-        public Il2CppStringField spriteName;
+        public Il2CppValueField<int> sprite;
 #endif
 
         public void Start()
         {
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
-            // Look for a sprite with the name of spriteName in the games' assets
-            var sprite = GameAssets.Instance.GetGameSprite(spriteName);
-            if (!sprite)
+            var gameSprite = GameAssets.Instance.GetGameSprite((GameSprites)sprite.Value);
+            if (!gameSprite)
             {
-                MelonLogger.Error($"Could not find sprite with name {spriteName} in game assets.");
+                MelonLogger.Error($"Could not find sprite with name {GameAssets.Instance.GetOriginalSpriteName((GameSprites)sprite.Value)} in game assets.");
                 return;
             }
-
+            
             // Get the Image component and assign the game asset to it
             var image = GetComponent<Image>();
-            image.sprite = sprite;
-
+            image.sprite = gameSprite;
+            
             DestroyImmediate(this);
 #endif
         }

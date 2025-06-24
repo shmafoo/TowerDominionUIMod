@@ -111,6 +111,9 @@
         <Compile Include="..\UnityProject\Assets\Components\Resolver\UICameraResolver.cs">
             <Link>Components\Resolver\UICameraResolver.cs</Link>
         </Compile>
+        <Compile Include="..\UnityProject\Assets\Generated\GameSprites.cs">
+          <Link>Generated\GameSprites.cs</Link>
+        </Compile>
         <Compile Include="Core\AssetBundles.cs"/>
         <Compile Include="Core\FoeRegistry.cs"/>
         <Compile Include="Core\GameAssets.cs"/>

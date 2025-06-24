@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3417f5fe5a24cbe4c9022ccfe16e7d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteName: border_16
+  sprite: 20
 --- !u!114 &3101110454342028850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3417f5fe5a24cbe4c9022ccfe16e7d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteName: stats_icon
+  sprite: 817
 --- !u!1 &6379957602746057708
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70a0075ddef999428cfa496782beac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statisticsView: {fileID: 0}
 --- !u!114 &5547792722925658935
 MonoBehaviour:
   m_ObjectHideFlags: 0

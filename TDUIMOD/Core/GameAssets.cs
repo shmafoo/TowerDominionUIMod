@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MelonLoader;
+using TowerDominionUIMod.Generated;
 using UnityEngine;
 
 namespace TowerDominionUIMod.Core;
@@ -32,15 +33,23 @@ public class GameAssets
         }
     }
 
+    public Sprite GetGameSprite(GameSprites sprite)
+    {
+        return GetGameSprite(GetOriginalSpriteName(sprite));
+    }
+    
     public Sprite GetGameSprite(string name)
     {
-        MelonLogger.Msg($"Trying to get game sprite with name {name}");
-        MelonLogger.Msg($"Dictionary size: {GameSprites.Count}");
-
-        var result = GameSprites.TryGetValue(name, out var sprite);
-        MelonLogger.Msg($"Found: {result}");
-        MelonLogger.Msg($"Sprite: {sprite.name}");
+        if (!GameSprites.TryGetValue(name, out var sprite))
+        {
+            MelonLogger.Error($"Could not find sprite with name {name} in game assets.");
+        }
 
         return sprite;
+    }
+
+    public string GetOriginalSpriteName(GameSprites sprite)
+    {
+        return sprite.ToString().Replace("sprite_", "").Replace("_DOT", ".");
     }
 }

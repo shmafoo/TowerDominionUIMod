@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3417f5fe5a24cbe4c9022ccfe16e7d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteName: close_icon
+  sprite: 287
 --- !u!1 &1196937459930786
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3417f5fe5a24cbe4c9022ccfe16e7d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteName: button_8
+  sprite: 65
 --- !u!1 &1200244827948798
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3417f5fe5a24cbe4c9022ccfe16e7d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteName: border_32
+  sprite: 28
 --- !u!1 &1779292014135703
 GameObject:
   m_ObjectHideFlags: 0
