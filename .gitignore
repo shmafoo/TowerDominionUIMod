@@ -33,12 +33,12 @@ UnityProject/Assets/AddressableAssetsData/*/*.json
 
 # Exlude any paths that will most likely contain copyrighted data from the game. Never add those to the repo!
 # Also remove any bigger package folders we do not need to add to the repo
-UnityProject/Assets/Sprite
-UnityProject/Assets/Sprite.meta
-UnityProject/Assets/Texture2D
-UnityProject/Assets/Texture2D.meta
-UnityProject/Assets/TextMesh Pro/
-UnityProject/Assets/TextMesh Pro.meta
+UnityProject/Assets/GameAssets/Sprite
+UnityProject/Assets/GameAssets/Sprite.meta
+UnityProject/Assets/GameAssets/Texture2D
+UnityProject/Assets/GameAssets/Texture2D.meta
+UnityProject/Assets/TextMesh\ Pro
+UnityProject/Assets/TextMesh\ Pro.meta
 
 # Rider project
 TDUIMOD/.idea/
