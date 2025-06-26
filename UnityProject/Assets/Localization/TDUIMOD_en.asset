@@ -27,11 +27,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 93693890560
-    m_Localized: Select All
+    m_Localized: Select all
     m_Metadata:
       m_Items: []
   - m_Id: 311640869785600
-    m_Localized: 'Neutral Odds:'
+    m_Localized: 'Neutral odds:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1094499872231424
+    m_Localized: 'HQ base HP:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1094624761827328
+    m_Localized: 'HQ HP multiplier:'
     m_Metadata:
       m_Items: []
   references:

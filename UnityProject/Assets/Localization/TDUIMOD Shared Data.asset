@@ -31,6 +31,14 @@ MonoBehaviour:
     m_Key: StatisticsNeutralOdds
     m_Metadata:
       m_Items: []
+  - m_Id: 1094499872231424
+    m_Key: StatisticsHQBaseHP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1094624761827328
+    m_Key: StatisticsHQHPMultiplier
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
