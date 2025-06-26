@@ -33,8 +33,9 @@ namespace TowerDominionUIMod.Components.Custom
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
             var test = localizedString.GetLocalizedString();
             MelonLogger.Msg($"SetLocalizedTypeText with value \"{test}\"");
-            
-            locTypeText.Value.OnUpdateString.AddListener(DelegateSupport.ConvertDelegate<UnityAction<string>>(SetTypeText));
+
+            locTypeText.Value.OnUpdateString.AddListener(
+                DelegateSupport.ConvertDelegate<UnityAction<string>>(new Action<string>(SetTypeText)));
             locTypeText.Value.StringReference = localizedString;
 #endif
         }
@@ -45,14 +46,14 @@ namespace TowerDominionUIMod.Components.Custom
             locTypeText.Value.gameObject.GetComponent<TextMeshProUGUI>().text = text;
 #endif
         }
-        
+
         public void SetValueText(string value)
         {
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
             valueTextField.Value.text = value;
 #endif
         }
-        
+
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
         public StatisticsLine(IntPtr ptr) : base(ptr)
         {

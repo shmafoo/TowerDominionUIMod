@@ -1,49 +1,52 @@
+using Il2CppInterop.Runtime.Injection;
 using MelonLoader;
+using TowerDominionUIMod.Components.Custom;
 using TowerDominionUIMod.Core;
 
-namespace TowerDominionUIMod;
-
-/// <summary>
-///     A MelonMod that adds UI modifications to Tower Dominion.
-/// </summary>
-public class UIMod : MelonMod
+namespace TowerDominionUIMod
 {
-    public override void OnInitializeMelon()
-    {
-        AssetBundles.Instance.Initialize();
-    }
-
-    public override void OnApplicationQuit()
-    {
-        ModOverlay.Instance.Cleanup();
-    }
-
     /// <summary>
-    ///     Sets up view modification handlers when the Boot scene is loaded.
+    ///     A MelonMod that adds UI modifications to Tower Dominion.
     /// </summary>
-    /// <param name="buildIndex">The build index of the initialized scene</param>
-    /// <param name="sceneName">The name of the initialized scene</param>
-    public override void OnSceneWasInitialized(int buildIndex, string sceneName)
+    public class UIMod : MelonMod
     {
-        switch (sceneName)
+        public override void OnInitializeMelon()
         {
-            case "Boot":
-                OnBootSceneInitialized();
-                break;
-            case "GameplayScene":
-                OnGameplaySceneInitialized();
-                break;
+            AssetBundles.Instance.Initialize();
         }
-    }
 
-    private void OnGameplaySceneInitialized()
-    {
-        GameAssets.Instance.Initialize();
-        ModOverlay.Instance.Initialize();
-    }
+        public override void OnApplicationQuit()
+        {
+            ModOverlay.Instance.Cleanup();
+        }
 
-    private void OnBootSceneInitialized()
-    {
-        ViewModRegistry.Initialize();
+        /// <summary>
+        ///     Sets up view modification handlers when the Boot scene is loaded.
+        /// </summary>
+        /// <param name="buildIndex">The build index of the initialized scene</param>
+        /// <param name="sceneName">The name of the initialized scene</param>
+        public override void OnSceneWasInitialized(int buildIndex, string sceneName)
+        {
+            switch (sceneName)
+            {
+                case "Boot":
+                    OnBootSceneInitialized();
+                    break;
+                case "GameplayScene":
+                    OnGameplaySceneInitialized();
+                    break;
+            }
+        }
+
+        private void OnGameplaySceneInitialized()
+        {
+            GameAssets.Instance.Initialize();
+            ModOverlay.Instance.Initialize();
+        }
+
+        private void OnBootSceneInitialized()
+        {
+            ViewModRegistry.Initialize();
+        }
     }
 }

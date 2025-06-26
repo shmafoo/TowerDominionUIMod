@@ -1,41 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
-            Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{E25B3D4A-0025-4EA9-8304-489E4150A9E7}</ProjectGuid>
-        <OutputType>Library</OutputType>
-        <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>TowerDominionUIMod</RootNamespace>
-        <AssemblyName>TowerDominionUIMod</AssemblyName>
-        <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
-        <FileAlignment>512</FileAlignment>
-        <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-        <LangVersion>latestmajor</LangVersion>
+        <TargetFramework>net6.0</TargetFramework>
+        <LangVersion>10</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <Configurations>Release;Debug</Configurations>
+        <Platforms>x64</Platforms>
+		<PlatformTarget>x64</PlatformTarget>
+		<IsPackable>false</IsPackable>
+		<RunPostBuildEvent>Always</RunPostBuildEvent>
+		<AssemblyName>TowerDominionUIMod</AssemblyName>
+		<RootNamespace>TowerDominionUIMod</RootNamespace>
+		<Company>TowerDominionUIMod</Company>
+		<Product>TowerDominionUIMod</Product>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
-        <DebugType>pdbonly</DebugType>
-        <Optimize>true</Optimize>
-        <DefineConstants>TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <OutputPath>bin\x64\Release\</OutputPath>
-        <PlatformTarget>x64</PlatformTarget>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <DefineConstants>DEBUG;TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <OutputPath>bin\x64\Debug\</OutputPath>
-        <PlatformTarget>x64</PlatformTarget>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
+
     <ItemGroup>
         <Reference Include="0Harmony">
             <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\0Harmony.dll</HintPath>
@@ -47,7 +27,7 @@
             <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppCopper.ViewManager.Code.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppInterop.Runtime">
-          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
         </Reference>
         <Reference Include="Il2Cppmscorlib">
             <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
@@ -58,14 +38,8 @@
         <Reference Include="Il2CppSystem.Drawing">
             <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppSystem.Drawing.dll</HintPath>
         </Reference>
-        <Reference Include="System.Drawing.Primitives">
-            <HintPath>$(Net6Dir)\System.Drawing.Primitives.dll</HintPath>
-        </Reference>
         <Reference Include="MelonLoader">
             <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\MelonLoader.dll</HintPath>
-        </Reference>
-        <Reference Include="System.Runtime.CompilerServices.Unsafe">
-            <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.14\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
         </Reference>
         <Reference Include="Unity.Addressables">
             <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Unity.Addressables.dll</HintPath>
@@ -85,8 +59,8 @@
         <Reference Include="UnityEngine.CoreModule">
             <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.TextCoreFontEngineModule">
-            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+        <Reference Include="UnityEngine.TextCoreTextEngineModule">
+            <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.TextRenderingModule">
             <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
@@ -98,15 +72,16 @@
             <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\UnityEngine.UIModule.dll</HintPath>
         </Reference>
     </ItemGroup>
+
     <ItemGroup>
         <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsLine.cs">
-          <Link>Components\Custom\StatisticsLine.cs</Link>
+            <Link>Components\Custom\StatisticsLine.cs</Link>
         </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsView.cs">
-            <Link>Components\Custom\StatisticsView.cs</Link>
+          <Link>Components\Custom\StatisticsView.cs</Link>
         </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsUI.cs">
-            <Link>Components\Custom\StatisticsUI.cs</Link>
+          <Link>Components\Custom\StatisticsUI.cs</Link>
         </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Resolver\SpriteResolver.cs">
             <Link>Components\Resolver\SpriteResolver.cs</Link>
@@ -120,38 +95,9 @@
         <Compile Include="..\UnityProject\Assets\Generated\GameSprites.cs">
             <Link>Generated\GameSprites.cs</Link>
         </Compile>
-        <Compile Include="Core\AssetBundles.cs"/>
-        <Compile Include="Core\FoeRegistry.cs"/>
-        <Compile Include="Core\GameAssets.cs"/>
-        <Compile Include="Core\ModEvents.cs"/>
-        <Compile Include="Core\ModifiedViewBase.cs"/>
-        <Compile Include="Core\ModOverlay.cs"/>
-        <Compile Include="Core\ViewModRegistry.cs"/>
-        <Compile Include="Core\ViewNameAttribute.cs"/>
-        <Compile Include="Patches\CharacterSelectionView_Patch.cs"/>
-        <Compile Include="Patches\EntityManager_Patch.cs"/>
-        <Compile Include="Patches\MessageRelay_Patch.cs" />
-        <Compile Include="Patches\VersionNumberUI_Patch.cs"/>
-        <Compile Include="Patches\ViewManager_Patch.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="UIMod.cs"/>
-        <Compile Include="Utils\GameUtils.cs"/>
-        <Compile Include="Utils\ModUtils.cs"/>
-        <Compile Include="ViewMods\CharacterSelectionViewMod.cs"/>
-        <Compile Include="ViewMods\PersistentGameHUDViewMod.cs"/>
     </ItemGroup>
-    <ItemGroup>
-        <None Include="App.config"/>
-    </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
-    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
-    <Target Name="AfterBuild">
+	
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
         <!-- copy the built dll to the games mods folder -->
         <Exec Command="copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ModsDir)\&quot;"/>
         <!-- copy the built addressables to the mods folder -->

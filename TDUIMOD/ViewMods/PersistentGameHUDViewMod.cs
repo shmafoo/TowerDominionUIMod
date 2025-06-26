@@ -1,17 +1,18 @@
 ﻿using TowerDominionUIMod.Core;
 
-namespace TowerDominionUIMod.ViewMods;
-
-[ViewName("PersistentGameHUDView")]
-public class PersistentGameHUDViewMod : ModifiedViewBase
+namespace TowerDominionUIMod.ViewMods
 {
-    public override void ViewOpened()
+    [ViewName("PersistentGameHUDView")]
+    public class PersistentGameHUDViewMod : ModifiedViewBase
     {
-        ModEvents.ShowModOverlay();
-    }
+        public override void ViewOpened()
+        {
+            ModEvents.ShowModOverlay();
+        }
 
-    public override void ViewClosed()
-    {
-        ModEvents.HideModOverlay();
+        public override void ViewClosed()
+        {
+            ModEvents.HideModOverlay();
+        }
     }
 }

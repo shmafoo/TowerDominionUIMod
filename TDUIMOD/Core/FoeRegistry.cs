@@ -5,58 +5,59 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
-namespace TowerDominionUIMod.Core;
-
-public static class FoeRegistry
+namespace TowerDominionUIMod.Core
 {
-    private static readonly Dictionary<string, FoeData> Foes = new();
-
-    static FoeRegistry()
+    public static class FoeRegistry
     {
-        Locale locale = null;
+        private static readonly Dictionary<string, FoeData> Foes = new();
 
-        foreach (var l in LocalizationSettings.AvailableLocales.Locales)
-            if (l.Identifier.Code == "en")
-                locale = l;
-
-        var foes = Resources.LoadAll<GameObject>("prefabs/entities/characters/foes");
-        foreach (var foe in foes)
+        static FoeRegistry()
         {
-            // this is most likely an incomplete prefab so we skip this
-            if (!foe)
-                continue;
+            Locale locale = null;
 
-            var entity = foe.GetComponent<CharacterEntity>();
-            var data = entity.CharacterData;
+            foreach (var l in LocalizationSettings.AvailableLocales.Locales)
+                if (l.Identifier.Code == "en")
+                    locale = l;
 
-            try
+            var foes = Resources.LoadAll<GameObject>("prefabs/entities/characters/foes");
+            foreach (var foe in foes)
             {
-                MelonLogger.Msg($"Foe: {foe.name}");
-                data.CharacterNameLocString.LocaleOverride = locale;
-                var loc = data.CharacterNameLocString.GetLocalizedString();
-                MelonLogger.Msg($" > Localized Name: {loc}");
-                MelonLogger.Msg($" > Base HP: {data.Health}");
-                MelonLogger.Msg($" > Base Shield: {data.Shield}");
-                MelonLogger.Msg($" > Base Speed: {data.Speed}");
-                MelonLogger.Msg($" > Is Air: {data.IsAircraft}");
-            }
-            catch
-            {
-                continue;
-            }
+                // this is most likely an incomplete prefab so we skip this
+                if (!foe)
+                    continue;
 
-            MelonLogger.WriteLine(1);
+                var entity = foe.GetComponent<CharacterEntity>();
+                var data = entity.CharacterData;
+
+                try
+                {
+                    MelonLogger.Msg($"Foe: {foe.name}");
+                    data.CharacterNameLocString.LocaleOverride = locale;
+                    var loc = data.CharacterNameLocString.GetLocalizedString();
+                    MelonLogger.Msg($" > Localized Name: {loc}");
+                    MelonLogger.Msg($" > Base HP: {data.Health}");
+                    MelonLogger.Msg($" > Base Shield: {data.Shield}");
+                    MelonLogger.Msg($" > Base Speed: {data.Speed}");
+                    MelonLogger.Msg($" > Is Air: {data.IsAircraft}");
+                }
+                catch
+                {
+                    continue;
+                }
+
+                MelonLogger.WriteLine(1);
+            }
         }
-    }
 
-    public static void Foo()
-    {
-    }
+        public static void Foo()
+        {
+        }
 
-    public struct FoeData
-    {
-        public int health;
-        public int shield;
-        public int speed;
+        public struct FoeData
+        {
+            public int health;
+            public int shield;
+            public int speed;
+        }
     }
 }

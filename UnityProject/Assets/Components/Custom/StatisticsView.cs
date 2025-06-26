@@ -23,24 +23,24 @@ namespace TowerDominionUIMod.Components.Custom
 #else
         public Il2CppReferenceField<GameObject> body;
 #endif
-        
+
         public void Start()
         {
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
             var odds = AddLine(
                 new LocalizedString("TDUIMOD", "StatisticsNaturalOdds")
-                );
+            );
 #endif
         }
-        
+
         private GameObject AddLine(LocalizedString statisticTypeText)
         {
             GameObject prefab = null;
-            
+
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
             prefab = AssetBundles.Instance.LoadPrefabSync("Prefabs/StatisticsLine", true);
             if (prefab == null) return null;
-            
+
             var lineObject = Instantiate(prefab, body.Value.transform);
             var line = lineObject.GetComponent<StatisticsLine>();
             line.SetLocalizedTypeText(statisticTypeText);
@@ -52,7 +52,7 @@ namespace TowerDominionUIMod.Components.Custom
         public void HandleMessage(Il2CppSystem.IComparable message, Il2CppReferenceArray<Il2CppSystem.Object> data)
         {
         }
-        
+
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
         public StatisticsView(IntPtr ptr) : base(ptr)
         {

@@ -4,22 +4,23 @@ using Il2CppNvizzio.Game.GamePlay.GameEntities;
 using Il2CppNvizzio.Game.GamePlay.Zones;
 using MelonLoader;
 
-namespace TowerDominionUIMod.Patches;
-
-[HarmonyPatch(typeof(EntityManager))]
-internal static class EntityManager_Patch
+namespace TowerDominionUIMod.Patches
 {
-    [HarmonyPatch(nameof(EntityManager.HandleGameEvent))]
-    [HarmonyPrefix]
-    private static void HandleGameEvent(GameplayEvent message)
+    [HarmonyPatch(typeof(EntityManager))]
+    internal static class EntityManager_Patch
     {
-        if (message == GameplayEvent.OnPathUpdated)
+        [HarmonyPatch(nameof(EntityManager.HandleGameEvent))]
+        [HarmonyPrefix]
+        private static void HandleGameEvent(GameplayEvent message)
         {
-            var oddsCurrent = ZoneManager.Instance.currentNeutralOdds;
-            var oddsIncrease = ZoneManager.Instance.neutralIncrementOdds;
-            var oddsReset = ZoneManager.Instance.neutralResetOddsPct;
+            if (message == GameplayEvent.OnPathUpdated)
+            {
+                var oddsCurrent = ZoneManager.Instance.currentNeutralOdds;
+                var oddsIncrease = ZoneManager.Instance.neutralIncrementOdds;
+                var oddsReset = ZoneManager.Instance.neutralResetOddsPct;
 
-            MelonLogger.Msg($"Odds: C-{oddsCurrent} / I-{oddsIncrease} / R-{oddsReset}");
+                MelonLogger.Msg($"Odds: C-{oddsCurrent} / I-{oddsIncrease} / R-{oddsReset}");
+            }
         }
     }
 }

@@ -28,7 +28,6 @@ namespace TowerDominionUIMod.Components.Custom
         {
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
             statisticsView.Value.gameObject.SetActive(!statisticsView.Value.gameObject.active);
-            tooltip.Value.SetActive(!tooltip.Value.gameObject.active);
 #endif
         }
 

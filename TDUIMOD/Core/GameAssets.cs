@@ -4,68 +4,69 @@ using MelonLoader;
 using TowerDominionUIMod.Generated;
 using UnityEngine;
 
-namespace TowerDominionUIMod.Core;
-
-public class GameAssets
+namespace TowerDominionUIMod.Core
 {
-    private static readonly GameAssets instance = new();
-    public static GameAssets Instance => instance;
-
-    private static readonly Dictionary<string, Sprite> GameSprites = new();
-    private static readonly Dictionary<string, TMP_FontAsset> GameFonts = new();
-
-    public void Initialize()
+    public class GameAssets
     {
-        GetAllGameSprites();
-        GetAllGameFonts();
-    }
+        private static readonly GameAssets instance = new();
+        public static GameAssets Instance => instance;
 
-    private void GetAllGameFonts()
-    {
-        var allFonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
-        foreach (var font in allFonts)
-            GameFonts[font.name] = font;
-    }
+        private static readonly Dictionary<string, Sprite> GameSprites = new();
+        private static readonly Dictionary<string, TMP_FontAsset> GameFonts = new();
 
-    public TMP_FontAsset GetGameFont(string name)
-    {
-        if (!GameFonts.TryGetValue(name, out var font))
-            MelonLogger.Error($"Could not find font with name {name} in game assets.");
-
-        return font;
-    }
-
-    private void GetAllGameSprites()
-    {
-        if (GameSprites.Count > 0)
-            return;
-
-        var allSprites = Resources.FindObjectsOfTypeAll<Sprite>();
-
-        foreach (var sprite in allSprites)
+        public void Initialize()
         {
-            if (GameSprites.ContainsKey(sprite.name))
-                continue;
-
-            GameSprites.Add(sprite.name, sprite);
+            GetAllGameSprites();
+            GetAllGameFonts();
         }
-    }
 
-    public Sprite GetGameSprite(GameSprites sprite)
-    {
-        return GetGameSprite(GetOriginalSpriteName(sprite));
-    }
+        private void GetAllGameFonts()
+        {
+            var allFonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
+            foreach (var font in allFonts)
+                GameFonts[font.name] = font;
+        }
 
-    public Sprite GetGameSprite(string name)
-    {
-        if (!GameSprites.TryGetValue(name, out var sprite))
-            MelonLogger.Error($"Could not find sprite with name {name} in game assets.");
+        public TMP_FontAsset GetGameFont(string name)
+        {
+            if (!GameFonts.TryGetValue(name, out var font))
+                MelonLogger.Error($"Could not find font with name {name} in game assets.");
 
-        return sprite;
-    }
+            return font;
+        }
 
-    public string GetOriginalSpriteName(GameSprites sprite)
-    {
-        return sprite.ToString().Replace("sprite_", "").Replace("_DOT", ".");
+        private void GetAllGameSprites()
+        {
+            if (GameSprites.Count > 0)
+                return;
+
+            var allSprites = Resources.FindObjectsOfTypeAll<Sprite>();
+
+            foreach (var sprite in allSprites)
+            {
+                if (GameSprites.ContainsKey(sprite.name))
+                    continue;
+
+                GameSprites.Add(sprite.name, sprite);
+            }
+        }
+
+        public Sprite GetGameSprite(GameSprites sprite)
+        {
+            return GetGameSprite(GetOriginalSpriteName(sprite));
+        }
+
+        public Sprite GetGameSprite(string name)
+        {
+            if (!GameSprites.TryGetValue(name, out var sprite))
+                MelonLogger.Error($"Could not find sprite with name {name} in game assets.");
+
+            return sprite;
+        }
+
+        public string GetOriginalSpriteName(GameSprites sprite)
+        {
+            return sprite.ToString().Replace("sprite_", "").Replace("_DOT", ".");
+        }
     }
 }

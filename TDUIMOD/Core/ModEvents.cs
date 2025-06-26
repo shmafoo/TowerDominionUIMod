@@ -1,19 +1,20 @@
 ﻿using System;
 
-namespace TowerDominionUIMod.Core;
-
-public static class ModEvents
+namespace TowerDominionUIMod.Core
 {
-    public static event Action OnShowModOverlay;
-    public static event Action OnHideModOverlay;
-
-    public static void ShowModOverlay()
+    public static class ModEvents
     {
-        OnShowModOverlay?.Invoke();
-    }
+        public static event Action OnShowModOverlay;
+        public static event Action OnHideModOverlay;
 
-    public static void HideModOverlay()
-    {
-        OnHideModOverlay?.Invoke();
+        public static void ShowModOverlay()
+        {
+            OnShowModOverlay?.Invoke();
+        }
+
+        public static void HideModOverlay()
+        {
+            OnHideModOverlay?.Invoke();
+        }
     }
 }
