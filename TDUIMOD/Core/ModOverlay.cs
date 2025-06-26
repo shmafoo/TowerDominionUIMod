@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using Il2Cpp;
-using MelonLoader;
-using MelonLoader.Utils;
+﻿using Il2Cpp;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -23,18 +19,6 @@ namespace TowerDominionUIMod.Core
                 return;
 
             var prefab = AssetBundles.Instance.LoadPrefabSync("Prefabs/ModHUD", true);
-
-            // var path = Path.Combine(MelonEnvironment.ModsDirectory, "towerdominionuimod-prefabs_assets_all.bundle");
-            // var prefab = AssetBundles.Instance.LoadFromBundle(
-            //     "Prefabs/ModHUD",
-            //     path
-            // );
-            //
-            // var prefab2 = AssetBundles.Instance.LoadFromBundle(
-            //     "Prefabs/StatisticsLine",
-            //     path
-            // );
-
             if (!prefab)
                 return;
 

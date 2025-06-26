@@ -1,5 +1,10 @@
-﻿using Il2CppTMPro;
+﻿using Il2CppInterop.Runtime;
+using Il2CppInterop.Runtime.InteropTypes.Arrays;
+using Il2CppNvizzio.Core.Messaging;
+using Il2CppNvizzio.Game.GamePlay.Events;
+using Il2CppTMPro;
 using MelonLoader;
+using TowerDominionUIMod.Core;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -31,6 +36,18 @@ namespace TowerDominionUIMod.Utils
 
             buttonTextComponent.text = buttonText.GetLocalizedString();
             return buttonInstance;
+        }
+
+        public static ModMessageObserver RegisterGameplayEventObserver(ModMessageObserver observer, ModMessageObserver.MessageCallback callback)
+        {
+            observer = new ModMessageObserver();
+            observer.SetCallback(callback);
+            
+            Il2CppReferenceArray<Il2CppSystem.Type> messageTypes = new Il2CppReferenceArray<Il2CppSystem.Type>(1);
+            messageTypes[0] = Il2CppType.Of<GameplayEvent>();
+            MessageRelay.Register(new IMessageObserver(observer.Pointer), messageTypes);
+
+            return observer;
         }
     }
 }

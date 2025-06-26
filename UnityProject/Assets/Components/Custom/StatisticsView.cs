@@ -1,14 +1,17 @@
 using UnityEngine;
-using UnityEngine.Localization;
 
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-using Nvizzio.Game.UI.Views;
 #else
+using Il2CppInterop.Runtime;
+using Il2CppNvizzio.Game.GamePlay.Events;
+using Il2CppNvizzio.Game.GamePlay.Zones;
 using Il2CppInterop.Runtime.InteropTypes.Fields;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
+using Il2CppNvizzio.Core.Messaging;
+using UnityEngine.Localization;
 using MelonLoader;
-using System;
 using TowerDominionUIMod.Core;
+using TowerDominionUIMod.Utils;
 #endif
 
 namespace TowerDominionUIMod.Components.Custom
@@ -22,38 +25,62 @@ namespace TowerDominionUIMod.Components.Custom
         [SerializeField] private GameObject body;
 #else
         public Il2CppReferenceField<GameObject> body;
+        private ModMessageObserver observer;
+        
+        private StatisticsLine neutralOdds;
 #endif
 
+#if !(UNITY_EDITOR || UNITY_STANDALONE)
         public void Start()
         {
-#if !(UNITY_EDITOR || UNITY_STANDALONE)
-            var odds = AddLine(
-                new LocalizedString("TDUIMOD", "StatisticsNaturalOdds")
+            observer = GameUtils.RegisterGameplayEventObserver(observer, HandleMessage);
+            
+            neutralOdds = AddLine(
+                new LocalizedString("TDUIMOD", "StatisticsNeutralOdds")
             );
-#endif
         }
 
-        private GameObject AddLine(LocalizedString statisticTypeText)
+        private StatisticsLine AddLine(LocalizedString statisticTypeText)
         {
-            GameObject prefab = null;
+            StatisticsLine line = null;
 
-#if !(UNITY_EDITOR || UNITY_STANDALONE)
-            prefab = AssetBundles.Instance.LoadPrefabSync("Prefabs/StatisticsLine", true);
+            var prefab = AssetBundles.Instance.LoadPrefabSync("Prefabs/StatisticsLine", true);
             if (prefab == null) return null;
 
             var lineObject = Instantiate(prefab, body.Value.transform);
-            var line = lineObject.GetComponent<StatisticsLine>();
+            line = lineObject.GetComponent<StatisticsLine>();
             line.SetLocalizedTypeText(statisticTypeText);
-            line.SetValueText("0");
-#endif
-            return prefab;
+            line.SetValueText(UpdateNeutralOdds());
+            return line;
         }
 
         public void HandleMessage(Il2CppSystem.IComparable message, Il2CppReferenceArray<Il2CppSystem.Object> data)
         {
+            var messageType = message.Unbox<GameplayEvent>();
+
+            switch (messageType)
+            {
+                case GameplayEvent.OnZonePlace:
+                case GameplayEvent.GameBegin:
+                case GameplayEvent.OnDiscoveringNeutral:
+                case GameplayEvent.WaveBegin:
+                    neutralOdds.SetValueText(UpdateNeutralOdds());
+                    break;
+                
+                default:
+                    // NOOP
+                    break;
+            }
         }
 
-#if !(UNITY_EDITOR || UNITY_STANDALONE)
+        private string UpdateNeutralOdds()
+        {
+            var oddsCurrent = ZoneManager.Instance.currentNeutralOdds;
+            var oddsIncrease = ZoneManager.Instance.neutralIncrementOdds;
+
+            return $"{oddsCurrent} [+{oddsIncrease}]";
+        }
+
         public StatisticsView(IntPtr ptr) : base(ptr)
         {
         }

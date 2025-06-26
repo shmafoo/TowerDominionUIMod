@@ -1,4 +1,7 @@
+using Il2Cpp;
+using Il2CppCopper.ViewManager.Code.Interfaces;
 using Il2CppInterop.Runtime.Injection;
+using Il2CppNvizzio.Core.Messaging;
 using MelonLoader;
 using TowerDominionUIMod.Components.Custom;
 using TowerDominionUIMod.Core;
@@ -12,6 +15,11 @@ namespace TowerDominionUIMod
     {
         public override void OnInitializeMelon()
         {
+            // ClassInjector.RegisterTypeInIl2Cpp<StatisticsView>(new RegisterTypeOptions()
+            // {
+            //     Interfaces = new[] {typeof(IGameEventListener)},
+            // });
+            
             AssetBundles.Instance.Initialize();
         }
 
