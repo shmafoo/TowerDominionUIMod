@@ -13,8 +13,6 @@ internal static class EntityManager_Patch
     [HarmonyPrefix]
     private static void HandleGameEvent(GameplayEvent message)
     {
-        // MelonLogger.Msg($"GameEvent: {message}");
-
         if (message == GameplayEvent.OnPathUpdated)
         {
             var oddsCurrent = ZoneManager.Instance.currentNeutralOdds;

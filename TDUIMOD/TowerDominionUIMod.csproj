@@ -47,7 +47,7 @@
             <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2CppCopper.ViewManager.Code.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppInterop.Runtime">
-            <HintPath>$(GameAbsoluteDir)\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+          <HintPath>G:\SteamLibrary\steamapps\common\Tower Dominion\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
         </Reference>
         <Reference Include="Il2Cppmscorlib">
             <HintPath>$(GameAbsoluteDir)\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
@@ -99,6 +99,9 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsLine.cs">
+          <Link>Components\Custom\StatisticsLine.cs</Link>
+        </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsView.cs">
             <Link>Components\Custom\StatisticsView.cs</Link>
         </Compile>
@@ -127,6 +130,7 @@
         <Compile Include="Core\ViewNameAttribute.cs"/>
         <Compile Include="Patches\CharacterSelectionView_Patch.cs"/>
         <Compile Include="Patches\EntityManager_Patch.cs"/>
+        <Compile Include="Patches\MessageRelay_Patch.cs" />
         <Compile Include="Patches\VersionNumberUI_Patch.cs"/>
         <Compile Include="Patches\ViewManager_Patch.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>

@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Assets\GameDummyScripts\StyledSelectableState.cs" />
     <Compile Include="Assets\Components\Resolver\SpriteResolver.cs" />
+    <Compile Include="Assets\Components\Custom\StatisticsLine.cs" />
     <Compile Include="Assets\Components\Resolver\UICameraResolver.cs" />
     <Compile Include="Assets\Components\Dummy\ShearRect.cs" />
     <Compile Include="Assets\GameDummyScripts\UniversalTooltipTrigger.cs" />

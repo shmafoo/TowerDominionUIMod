@@ -2,9 +2,10 @@ using UnityEngine;
 using UnityEngine.Localization;
 
 #if (UNITY_EDITOR || UNITY_STANDALONE)
+using Nvizzio.Game.UI.Views;
 #else
-using Il2Cpp;
 using Il2CppInterop.Runtime.InteropTypes.Fields;
+using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using MelonLoader;
 using System;
 using TowerDominionUIMod.Core;
@@ -18,22 +19,14 @@ namespace TowerDominionUIMod.Components.Custom
     public class StatisticsView : MonoBehaviour
     {
 #if (UNITY_EDITOR || UNITY_STANDALONE)
-        [SerializeField] private RectTransform root;
-
-        [SerializeField] private StyledButton closeButton;
-
-        [SerializeField] private Transform body;
+        [SerializeField] private GameObject body;
 #else
-        public Il2CppReferenceField<RectTransform> root;
-        public Il2CppReferenceField<StyledButton> closeButton;
-        public Il2CppReferenceField<Transform> body;
+        public Il2CppReferenceField<GameObject> body;
 #endif
-
+        
         public void Start()
         {
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
-            MelonLogger.Msg("StatisticsView.Start() called!");
-
             var odds = AddLine(
                 new LocalizedString("TDUIMOD", "StatisticsNaturalOdds")
                 );
@@ -42,15 +35,24 @@ namespace TowerDominionUIMod.Components.Custom
         
         private GameObject AddLine(LocalizedString statisticTypeText)
         {
-#if !(UNITY_EDITOR || UNITY_STANDALONE)
-            var prefab = AssetBundles.Instance.LoadPrefabSync("Prefabs/StatisticsLine", true);
+            GameObject prefab = null;
             
-            return prefab != null ? Instantiate(prefab, transform.FindChildByName("Body")) : null;
-#else
-            return null;
+#if !(UNITY_EDITOR || UNITY_STANDALONE)
+            prefab = AssetBundles.Instance.LoadPrefabSync("Prefabs/StatisticsLine", true);
+            if (prefab == null) return null;
+            
+            var lineObject = Instantiate(prefab, body.Value.transform);
+            var line = lineObject.GetComponent<StatisticsLine>();
+            line.SetLocalizedTypeText(statisticTypeText);
+            line.SetValueText("0");
 #endif
+            return prefab;
         }
 
+        public void HandleMessage(Il2CppSystem.IComparable message, Il2CppReferenceArray<Il2CppSystem.Object> data)
+        {
+        }
+        
 #if !(UNITY_EDITOR || UNITY_STANDALONE)
         public StatisticsView(IntPtr ptr) : base(ptr)
         {

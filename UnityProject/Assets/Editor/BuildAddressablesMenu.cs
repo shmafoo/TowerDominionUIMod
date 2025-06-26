@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
+using System;
 using System.Linq;
-using OpenCover.Framework.Model;
 using UnityEditor;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Build;
@@ -11,9 +11,13 @@ internal static class BuildAddressablesMenu
     private const string SettingsPath = "Assets/AddressableAssetsData/AddressableAssetSettings.asset";
     private const string BuildScriptPath = "Assets/Editor/BuildScriptWithPrefix.asset";
 
-    [MenuItem("Tools/Build Addressables")]
+    [MenuItem("Tools/Build Addressables %&b")]
     public static void BuildAddressables()
     {
+        // Clear cache
+        AddressableAssetSettings.CleanPlayerContent();
+        Debug.Log("Cache cleared.");
+        
         // Load Addressables settings
         var settings = AssetDatabase.LoadAssetAtPath<AddressableAssetSettings>(SettingsPath);
         if (settings == null)
