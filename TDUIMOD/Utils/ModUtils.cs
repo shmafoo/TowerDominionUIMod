@@ -3,6 +3,7 @@ using Il2CppInterop.Runtime.InteropTypes;
 using Il2CppSystem.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets.ResourceLocators;
+using UnityEngine.Localization;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace TowerDominionUIMod.Utils
@@ -55,6 +56,11 @@ namespace TowerDominionUIMod.Utils
             });
 
             return bundlePath;
+        }
+
+        public static LocalizedString GetLocalizedString(string entryReference)
+        {
+            return new LocalizedString("TDUIMOD", entryReference);
         }
     }
 }

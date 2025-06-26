@@ -19,7 +19,7 @@ namespace TowerDominionUIMod
             // {
             //     Interfaces = new[] {typeof(IGameEventListener)},
             // });
-            
+
             AssetBundles.Instance.Initialize();
         }
 

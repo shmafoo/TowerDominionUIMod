@@ -38,13 +38,13 @@ namespace TowerDominionUIMod.Utils
             return buttonInstance;
         }
 
-        public static ModMessageObserver RegisterGameplayEventObserver(ModMessageObserver observer, ModMessageObserver.MessageCallback callback)
+        public static ModMessageObserver RegisterGameplayEventObserver(ModMessageObserver.MessageCallback callback, List<GameplayEvent> observedEvents = null)
         {
-            observer = new ModMessageObserver();
-            observer.SetCallback(callback);
-            
-            Il2CppReferenceArray<Il2CppSystem.Type> messageTypes = new Il2CppReferenceArray<Il2CppSystem.Type>(1);
+            var observer = new ModMessageObserver(callback, observedEvents);
+
+            var messageTypes = new Il2CppReferenceArray<Il2CppSystem.Type>(1);
             messageTypes[0] = Il2CppType.Of<GameplayEvent>();
+            
             MessageRelay.Register(new IMessageObserver(observer.Pointer), messageTypes);
 
             return observer;

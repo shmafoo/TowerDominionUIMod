@@ -7,13 +7,13 @@
         <Nullable>disable</Nullable>
         <Configurations>Release;Debug</Configurations>
         <Platforms>x64</Platforms>
-		<PlatformTarget>x64</PlatformTarget>
-		<IsPackable>false</IsPackable>
-		<RunPostBuildEvent>Always</RunPostBuildEvent>
-		<AssemblyName>TowerDominionUIMod</AssemblyName>
-		<RootNamespace>TowerDominionUIMod</RootNamespace>
-		<Company>TowerDominionUIMod</Company>
-		<Product>TowerDominionUIMod</Product>
+        <PlatformTarget>x64</PlatformTarget>
+        <IsPackable>false</IsPackable>
+        <RunPostBuildEvent>Always</RunPostBuildEvent>
+        <AssemblyName>TowerDominionUIMod</AssemblyName>
+        <RootNamespace>TowerDominionUIMod</RootNamespace>
+        <Company>TowerDominionUIMod</Company>
+        <Product>TowerDominionUIMod</Product>
     </PropertyGroup>
 
     <ItemGroup>
@@ -78,10 +78,10 @@
             <Link>Components\Custom\StatisticsLine.cs</Link>
         </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsView.cs">
-          <Link>Components\Custom\StatisticsView.cs</Link>
+            <Link>Components\Custom\StatisticsView.cs</Link>
         </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Custom\StatisticsUI.cs">
-          <Link>Components\Custom\StatisticsUI.cs</Link>
+            <Link>Components\Custom\StatisticsUI.cs</Link>
         </Compile>
         <Compile Include="..\UnityProject\Assets\Components\Resolver\SpriteResolver.cs">
             <Link>Components\Resolver\SpriteResolver.cs</Link>
@@ -96,7 +96,7 @@
             <Link>Generated\GameSprites.cs</Link>
         </Compile>
     </ItemGroup>
-	
+
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
         <!-- copy the built dll to the games mods folder -->
         <Exec Command="copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ModsDir)\&quot;"/>
